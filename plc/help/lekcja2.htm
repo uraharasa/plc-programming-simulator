@@ -1,0 +1,72 @@
+﻿<h2>
+    Lekcja 2
+</h2>
+<p>
+    Celem lekcji drugiej jest zapoznanie się z podstawowymi elementami używanymi podczas
+    programowania sterowników PLC. Sterować w niej będziemy systemem obiegu wody w basenie.
+</p>
+<p>
+    Po włączeniu lekcji drugiej oczom naszym ukazuje się "dydaktyczny" basen:
+</p>
+<img class="example" src="basen.jpg">
+<p>
+    W centralnym miejscu znajduje się rzeczony basen. Na wewnętrznej stronie jego ścianki
+    umocowane są dwa czujniki, reagujące na wodę. Po prawej stronie znajduje się rura
+    odpływu, którą można zamknąć zaworem sterowanym siłownikiem elektrycznym. Nad basenem
+    znajduje się rura wlotu wody, również zamykana podobnym zaworem.
+</p>
+<p>
+    Oba czujniki poziomu cieczy reagują na bezpośredni kontakt z wodą. Jeśli czujnik
+    jest suchy, to na odpowiednim wejściu sterownika jest stan "0". Jeśli czujnik jest
+    pod wodą, to na wejściu pojawia się stan "1".
+</p>
+<p>
+    Stan otwarcia lub zamknięcia zaworu sygnalizowany jest poprzez lampkę kontrolną
+    umieszczoną na siłowniku:
+    <ul>
+        <li>
+            <img class="icon" src="zawor_otwarty.gif">
+            - zawór jest otwarty</li>
+        <li>
+            <img class="icon" src="zawor_zamkniety.gif">
+            - zawór jest zamknięty</li>
+    </ul>
+    Obie rury mają identyczną przepustowość wody, więc otwarcie obu zaworów na raz nie
+    zmienia poziomu wody i zapewnia ciągłą wymianę wody na świeżą.
+</p>
+<p>
+    Naszym zadaniem jest oprogramowanie przycisków znajdujących się po prawej stronie
+    układu wykonawczego. Dwa z nich ("Napełnij" i "Opróżnij") to przyciski astabilne,
+    tzn. kliknięcie na którymś z nich załącza go tylko na czas trwania jednego cyklu
+    sterownika. Trzeci przycisk ("Wymiana") to przycisk bistabilny - kliknięcie na nim
+    przełącza stany wciśnięty-wyciśnięty.
+</p>
+<p>
+    Aby ułatwić programowanie sterownika, w lekcji tej wprowadzone zostały następujące
+    symboliczne oznaczenia:
+    <ul>
+        <li>CZUJ_GÓRA - czujnik u brzegu basenu</li>
+        <li>CZUJ_DÓŁ - czujnik u dna basenu</li>
+        <li>NAPEŁNIJ - przycisk "Napełnij"</li>
+        <li>OPRÓŻNIJ - przycisk "Opróżnij"</li>
+        <li>WYMIANA - przycisk "Wymiana"</li>
+        <li>DOPŁYW - siłownik sterujący dopływem wody</li>
+        <li>ODPŁYW - siłownik sterujący odpływem wody</li>
+    </ul>
+</p>
+<h2>
+    Zadania do wykonania:
+</h2>
+<ol>
+    <li>Napisz program obsługujący przycisk "Napełnij", tak aby po jego wciśnięciu zaczęła
+        się lać woda. (Użyj cewki S)</li>
+    <li>Dopisz do poprzedniego programu zabezpieczenie reagujące na górny czujnik poziomu
+        cieczy tak, aby woda się nie przelewała przez brzeg.</li>
+    <li>Uzupełnij poprzedni program o obsługę przycisku "Opróżnij". Spraw aby wylewana była
+        woda z całego basenu.</li>
+    <li>Zmodyfikuj program tak, aby nie można było przerwać procesu napełniania i opróżniania
+        basenu. Dopiero gdy poziom cieczy osiągnie jakiś czujnik, proces zostaje przerwany.</li>
+    <li>Dodaj obsługę przełącznika "Wymiana". Jeśli basen nie jest aktualnie napełniany
+        lub opróżniany, a przycisk jest załączony, to niech zostaną otwarte oba zawory na
+        raz (wymusza to ciągły obieg świeżej wody).</li>
+</ol>

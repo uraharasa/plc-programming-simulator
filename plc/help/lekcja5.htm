@@ -1,0 +1,45 @@
+﻿<h2>
+    Lekcja 5
+</h2>
+<p>
+    Ostatnia, piąta lekcja jest jednocześnie wymagającą najwięcej przemyśleń. Zajmiemy
+    się w niej sterowaniem windą w pięciopiętrowym hotelu.
+</p>
+<p>
+    Po włączeniu lekcji piątej oczom naszym ukazuje się hotelowy parter:
+</p>
+<img class="example" src="winda.jpg">
+<p>
+    Sterowanie windą odbywa się za pomocą przycisków symbolizujących piętra. Po wciśnięciu
+    któregoś z przycisków, powinien zostać on podświetlony, a winda powinna zamknąć
+    drzwi, pojechać na wybrane piętro, otworzyć drzwi i wyłączyć podświetlanie przycisku.
+    Nieskomplikowane, prawda? A co powinno się stać, gdy ktoś wciśnie przycisk podczas
+    jazdy windy na któreś piętro? Uwzględnienie wszystkich przypadków jest prawdziwym
+    wyzwaniem i potrafią to tylko najlepsi. Czy ty jesteś jednym z nich?
+</p>
+<p>
+    Do sterowania całym systemem dostępne mamy następujące wejścia i wyjścia:
+    <ul>
+        <li>Wejścia odpowiadające przyciskom przywołania windy. Każdy z przycisków, po wciśnięciu,
+            daje na odpowiadającym mu wejściu jedynkę tylko na jeden cykl pracy sterownika.
+            Przyciski dostępne są jako PRZYC_P, PRZYC_1, PRZYC_2, PRZYC_3 i PRZYC_4.</li>
+        <li>Wyjścia odpowiadające żarówkom pod przyciskami. Ustawienie na danym wyjściu jedynki
+            powoduje podświetlenie odpowiadającego przycisku. Światełka dostępne są jako SWIATŁO_P,
+            SWIATŁO_1, SWIATŁO_2, SWIATŁO_3 i SWIATŁO_4.</li>
+        <li>Wyjścia sterujące drzwiami na każdym piętrze. Zero na danym wyjściu powoduje zamykanie
+            drzwi, jedynka - ich otwieranie. Ich oznaczenia to odpowiednio dla każdego z pięter
+            DRZWI_P, DRZWI_1, DRZWI_2, DRZWI_3 i DRZWI_4.</li>
+        <li>Dwa wyjścia sterujące ruchem samej windy. Jedno z nich, oznaczone WIND_RUCH, wybiera,
+            czy winda stoi (zero), czy jedzie (jeden). Drugie, oznaczone WIND_KIER, steruje
+            kierunkiem ruchu windy. Zero to ruch w dół, jeden to ruch w górę.</li>
+        <li>Jedno wejście analogowe (CZUJ_WYS) pozwala na odczyt aktualnego położenia windy.
+            Odległość między piętrami wynosi dokładnie 320 jednostek. 0 oznacza więc parter,
+            320 pierwsze piętro, 640 drugie itd. Wartości pośrednie oznaczają, że winda znajduje
+            się między piętrami.</li>
+    </ul>
+</p>
+<p>
+    Nasze zadanie już znamy - należy tak oprogramować sterownik, aby winda zachowywała
+    się jak prawdziwa. Oczywiście nie oprogramujemy całego jej zachowania od razu. Krok
+    po kroku dodamy więcej funkcji.
+</p>

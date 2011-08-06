@@ -1,0 +1,136 @@
+﻿<h2>
+    Symbol rozkazu:
+</h2>
+<img class="symbol" src="licznik_upctr.gif">
+<h2>
+    Opis działania:
+</h2>
+<p>
+    Licznik UPCTR (Up Counter) używany jest do zliczania impulsów. Za każdym razem,
+    gdy wejście licznika zmienia stan z niskiego na wysoki zwiększana jest liczba aktualnie
+    zliczonych impulsów. Wejście RESET służy do wyzerowania licznika. Wyjście licznika
+    ustawia się w stan wysoki, gdy liczba zliczonych impulsów jest równa lub większa
+    niż wartość na wejściu PV.
+</p>
+<p>
+    Licznik w czasie pracy przechowuje swój stan w pamięci sterownika. Do zachowania
+    całego stanu potrzebuje trzech komórek pamięci. Adres bazowy pokazuje na pierwszą
+    z tych trzech komórek. Istotną sprawą przy programowaniu sterowników jest to, aby
+    żadne dwa bloki funkcyjne nie trzymały swoich danych w tych samych obszarach. Jeśli
+    np. dla jednego licznika wybierzemy jako adres bazowy komórkę %R0005, to oznacza
+    to, że komórki %R0006 i %R0007 są zajęte przez ten licznik. Inna funkcja może użyć
+    dopiero adresu %R0008.
+</p>
+<p>
+    Jeśli zajdzie konieczność odczytania ilości aktualnie zliczonych impulsów, można
+    odczytać ją spod adresu równego adresowi bazowemu.
+</p>
+<h2>
+    Dopuszczalne typy pamięci:
+</h2>
+<table class="memory">
+    <tr>
+        <td>
+            Parametr
+        </td>
+        <td>
+            %I
+        </td>
+        <td>
+            %Q
+        </td>
+        <td>
+            %R
+        </td>
+        <td>
+            %M
+        </td>
+        <td>
+            %AI
+        </td>
+        <td>
+            %AQ
+        </td>
+        <td>
+            const
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Adres bazowy
+        </td>
+        <td>
+            nie
+        </td>
+        <td>
+            nie
+        </td>
+        <td>
+            tak
+        </td>
+        <td>
+            nie
+        </td>
+        <td>
+            nie
+        </td>
+        <td>
+            nie
+        </td>
+        <td>
+            nie
+        </td>
+    </tr>
+    <tr>
+        <td>
+            R
+        </td>
+        <td>
+            tak
+        </td>
+        <td>
+            nie
+        </td>
+        <td>
+            tak
+        </td>
+        <td>
+            tak
+        </td>
+        <td>
+            nie
+        </td>
+        <td>
+            nie
+        </td>
+        <td>
+            nie
+        </td>
+    </tr>
+    <tr>
+        <td>
+            PV
+        </td>
+        <td>
+            nie
+        </td>
+        <td>
+            nie
+        </td>
+        <td>
+            tak
+        </td>
+        <td>
+            tak
+        </td>
+        <td>
+            tak
+        </td>
+        <td>
+            nie
+        </td>
+        <td>
+            tak
+        </td>
+    </tr>
+</table>

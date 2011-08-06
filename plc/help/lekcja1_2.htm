@@ -1,0 +1,74 @@
+﻿<p>
+    Kliknij <a href="lekcja1_1.html">tutaj</a> aby wrócić do poprzedniego etapu.
+</p>
+<h2>
+    Lekcja 1 - Zasada działania i organizacja pamięci
+</h2>
+<p>
+    Każdy sterownik PLC pracuje w kilkuetapowym cyklu. W najogólniejszym przypadku praca
+    sterownika wygląda tak:
+</p>
+<img class="example" src="cykle.gif">
+<ul>
+    <li>Pierwszy etap każdego cyklu to odczytywanie stanów wszystkich wejść sterownika i
+        zapisywanie tychże do wewnętrznej pamięci sterownika. </li>
+    <li>Drugi etap to wykonanie programu zapisanego w sterowniku. Gdy jakaś instrukcja programu
+        chce odczytać stan któregoś z wejść sterownika, informacja ta nie pochodzi bezpośrednio
+        z wejścia, tylko z miejsca w pamięci, w którym została zapisana w pierwszym etapie.
+        Jeśli instrukcja chce coś zapisać na wyjście sterownika, to informacja do zapisania
+        ląduje w innym obszarze pamięci - na wyjściu nic nie jest zmieniane. </li>
+    <li>Trzeci etap, to zapisanie na wyjścia sterownika, danych o wyjściach przechowywanych
+        w pamięci sterownika. </li>
+    <li>Ostatni, czwarty etap, to kontrola wewnętrznego stanu sterownika. Etap ten jest
+        potrzebny ze względów bezpieczeństwa. Jeśli sterownik wykryje jakiś błąd w swym
+        działaniu, może zatrzymać proces, którym steruje i powiadomić operatora alarmem.
+    </li>
+</ul>
+<p>
+    W rzeczywistych sterownikach czas trwania każdego z cykli jest zmienny i zależy
+    m. in. od długości programu. W sterowniku symulowanym w tym programie dydaktycznym,
+    każdy cykl pracy trwa dokładnie 10 ms. Oznacza to, że w ciągu sekundy pracy symulacji,
+    program użytkownika wykonywany jest 100 razy.
+</p>
+<p>
+    Z etapowego sposobu działania sterownika wynika, że gdy w programie użytkownika
+    któreś z wyjść modyfikowane jest kilka razy w jednym cyklu, to tak naprawdę na wyjściu
+    sterownika pojawi się ostatnia zapisana wartość. Podobnie czytanie kilka razy z
+    tego samego wejścia ta zawsze tą samą wartość.
+</p>
+<p>
+    W programach dla sterowników PLC pojawia się kilka typów pamięci. Oto one:
+    <ul>
+        <li>Pamięć typu I - przechowuje stany wejść cyfrowych sterownika. Np. czwarte wejście
+            cyfrowe sterownika ma adres %I0004</li>
+        <li>Pamięć typu Q - przechowuje stany wyjść cyfrowych sterownika. Np. trzecie wyjście
+            cyfrowe sterownika ma adres %Q0003</li>
+        <li>Pamięć typu AI - przechowuje stany wejść analogowych sterownika. Np. piąte wejście
+            analogowe sterownika ma adres %AI0004</li>
+        <li>Pamięć typu AQ - przechowuje stany wyjść analogowych sterownika. Np. trzecie wyjście
+            analogowe sterownika ma adres %AQ0003</li>
+        <li>Pamięć typu R - pamięć ogólnego użytku, służy głównie do przechowywania wewnętrznych
+            danych bloków funkcyjnych. Np. czterdziesta komórka tej pamięci ma adres %R0040</li>
+        <li>Pamięć typu M - pamięć ogólnego użytku, służy głównie do przechowywania tymczasowych
+            wyników obliczeń. Np. dwudziesta druga komórka tej pamięci ma adres %M0022</li>
+    </ul>
+</p>
+<p>
+    Dla wygody użytkowników można zamiast adresu użyć wcześniej zdefiniowanych słów.
+    Jeśli np. pod trzecie wyjście cyfrowe sterownika (adres %Q0003) mamy podłączoną
+    żarówkę, to zamiast wszędzie w programie, gdzie chcemy zapalić lub zgasić żarówkę
+    pisać %Q0003, możemy napisać po prostu ŻARÓWKA. Dokładnie tak samo zrobiliśmy w
+    naszym pierwszym programie. Zamiast pamiętać, że pierwszy z lewej przełącznik ma
+    adres %I0000, użyliśmy słowa BISTAB_1 (pierwszy bistabliny). Tak samo zamiast %Q0000,
+    podaliśmy ŻÓŁTA_1 (pierwsza żółta żarówka). Dzięki takim słownym zastąpieniom wygdniej
+    pisze się programy, a także łatwiej zanalizować ich działanie.
+</p>
+<p>
+    Prawdopodobnie pamiętasz takie okno:
+    <img class="example" src="krok8.gif">
+    To właśnie w nim wybieramy, o jaki typ pamięci i jaki adres nam w danym przypadku
+    chodzi. To również w nim można wybrać jeden z gotowych "słownych" adresów.
+</p>
+<p>
+    Kliknij <a href="lekcja1_3.html">tutaj</a> aby przejść dalej.
+</p>

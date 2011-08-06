@@ -1,0 +1,70 @@
+﻿<h2>
+    Symbol rozkazu:
+</h2>
+<img class="symbol" src="cewka_zbocze_narastajace.gif">
+<h2>
+    Opis działania:
+</h2>
+<p>
+    Cewka ta reaguje na narastające zbocze sygnału wejściowego. W momencie, gdy podczas
+    poprzedniego cyklu nie była ona zasilana, a w tym cyklu dopływa do niej prąd, ustawia
+    ona zawartość komórki pod adresem bazowym na 1, ale tylko na ten jeden cykl. We
+    wszystkich innych przypadkach ustawia ona 0.
+</p>
+<h2>
+    Dopuszczalne typy pamięci:
+</h2>
+<table class="memory">
+    <tr>
+        <td>
+            Parametr
+        </td>
+        <td>
+            %I
+        </td>
+        <td>
+            %Q
+        </td>
+        <td>
+            %R
+        </td>
+        <td>
+            %M
+        </td>
+        <td>
+            %AI
+        </td>
+        <td>
+            %AQ
+        </td>
+        <td>
+            const
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Adres bazowy
+        </td>
+        <td>
+            nie
+        </td>
+        <td>
+            tak
+        </td>
+        <td>
+            tak
+        </td>
+        <td>
+            tak
+        </td>
+        <td>
+            nie
+        </td>
+        <td>
+            tak
+        </td>
+        <td>
+            nie
+        </td>
+    </tr>
+</table>
