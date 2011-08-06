@@ -19,9 +19,18 @@ int il_wejsc;
 int il_wyjsc;
 pamiec * * adresy;
 int ilosc_przyciskow;
+HFONT czcionka_dialogu = 0;
 
 void zmien_parametry_elementu(HWND okno, element_zwykly * aktualny)
 	{
+		if (czcionka_dialogu == 0)
+		{
+		   NONCLIENTMETRICS metrics;
+		   metrics.cbSize = sizeof(NONCLIENTMETRICS);
+		   BOOL result = SystemParametersInfo(SPI_GETNONCLIENTMETRICS, sizeof(NONCLIENTMETRICS), &metrics, 0);
+		   czcionka_dialogu = CreateFontIndirect(&metrics.lfCaptionFont);
+		}
+
    edytowany = aktualny;
 	adres_bazowy = edytowany->adres_bazowy;
    wejscia = edytowany->wejscia;
@@ -77,7 +86,8 @@ BOOL CALLBACK ProceduraDialogu(HWND okno, UINT komunikat, WPARAM wParam, LPARAM 
             GetTextExtentPoint32(kontekst, "Adres bazowy", 12, &rozmiar);
             if (rozmiar.cx+szerokosc_przycisku+30>szerokosc_dialogu)
             	szerokosc_dialogu = rozmiar.cx+szerokosc_przycisku+30;
-            CreateWindow("STATIC", "Adres bazowy", WS_CHILD|WS_VISIBLE, 10, wysokosc_dialogu+(wysokosc_przycisku-rozmiar.cy)/2, rozmiar.cx, rozmiar.cy, okno, NULL, instancja, NULL);
+            HWND etykieta = CreateWindow("STATIC", "Adres bazowy", WS_CHILD|WS_VISIBLE, 10, wysokosc_dialogu+(wysokosc_przycisku-rozmiar.cy)/2, rozmiar.cx, rozmiar.cy, okno, NULL, instancja, NULL);
+			SendMessage(etykieta, WM_SETFONT, (WPARAM)czcionka_dialogu, FALSE);
 				wysokosc_dialogu += wysokosc_przycisku+10;
             i++;
             }
@@ -97,7 +107,8 @@ BOOL CALLBACK ProceduraDialogu(HWND okno, UINT komunikat, WPARAM wParam, LPARAM 
                GetTextExtentPoint32(kontekst, pelen, strlen(pelen), &rozmiar);
 	            if (rozmiar.cx+szerokosc_przycisku+30>szerokosc_dialogu)
 	            	szerokosc_dialogu = rozmiar.cx+szerokosc_przycisku+30;
-	            CreateWindow("STATIC", pelen, WS_CHILD|WS_VISIBLE, 10, wysokosc_dialogu+(wysokosc_przycisku-rozmiar.cy)/2, rozmiar.cx, rozmiar.cy, okno, NULL, instancja, NULL);
+	            HWND etykieta = CreateWindow("STATIC", pelen, WS_CHILD|WS_VISIBLE, 10, wysokosc_dialogu+(wysokosc_przycisku-rozmiar.cy)/2, rozmiar.cx, rozmiar.cy, okno, NULL, instancja, NULL);
+				SendMessage(etykieta, WM_SETFONT, (WPARAM)czcionka_dialogu, FALSE);
 					wysokosc_dialogu += wysokosc_przycisku+10;
                delete pelen;
                o++;
@@ -120,7 +131,8 @@ BOOL CALLBACK ProceduraDialogu(HWND okno, UINT komunikat, WPARAM wParam, LPARAM 
                GetTextExtentPoint32(kontekst, pelen, strlen(pelen), &rozmiar);
 	            if (rozmiar.cx+szerokosc_przycisku+30>szerokosc_dialogu)
 	            	szerokosc_dialogu = rozmiar.cx+szerokosc_przycisku+30;
-	            CreateWindow("STATIC", pelen, WS_CHILD|WS_VISIBLE, 10, wysokosc_dialogu+(wysokosc_przycisku-rozmiar.cy)/2, rozmiar.cx, rozmiar.cy, okno, NULL, instancja, NULL);
+	            HWND etykieta = CreateWindow("STATIC", pelen, WS_CHILD|WS_VISIBLE, 10, wysokosc_dialogu+(wysokosc_przycisku-rozmiar.cy)/2, rozmiar.cx, rozmiar.cy, okno, NULL, instancja, NULL);
+				SendMessage(etykieta, WM_SETFONT, (WPARAM)czcionka_dialogu, FALSE);
 					wysokosc_dialogu += wysokosc_przycisku+10;
                delete pelen;
                o++;
@@ -129,7 +141,10 @@ BOOL CALLBACK ProceduraDialogu(HWND okno, UINT komunikat, WPARAM wParam, LPARAM 
             }
          ReleaseDC(okno, kontekst);
          for (int i=0; i<ilosc_przyciskow; i++)
-            CreateWindow("BUTTON", "Zmieñ", BS_PUSHBUTTON|WS_CHILD|WS_VISIBLE, szerokosc_dialogu-szerokosc_przycisku-10, akt_wys+(wysokosc_przycisku+10)*i, szerokosc_przycisku, wysokosc_przycisku, okno, (HMENU)(0x100+i), instancja, NULL);
+		 {
+            HWND przycisk = CreateWindow("BUTTON", "Zmieñ", BS_PUSHBUTTON|WS_CHILD|WS_VISIBLE, szerokosc_dialogu-szerokosc_przycisku-10, akt_wys+(wysokosc_przycisku+10)*i, szerokosc_przycisku, wysokosc_przycisku, okno, (HMENU)(0x100+i), instancja, NULL);
+			SendMessage(przycisk, WM_SETFONT, (WPARAM)czcionka_dialogu, FALSE);
+		 }
 
 			MoveWindow(GetDlgItem(okno, IDOK), (szerokosc_dialogu-szerokosc_przycisku)/2, wysokosc_dialogu+10, szerokosc_przycisku, wysokosc_przycisku, FALSE);
          wysokosc_dialogu += wysokosc_przycisku + 20;

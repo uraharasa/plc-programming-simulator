@@ -57,6 +57,11 @@ narzedzia::narzedzia(HWND okno_narzedziowe)
    GetClientRect(okno, &obszar);
    zakladki = CreateWindow(WC_TABCONTROL, "", WS_CHILD|WS_CLIPSIBLINGS|WS_VISIBLE,
 		0, 0, obszar.right, obszar.bottom, okno, NULL, instancja, NULL);
+   NONCLIENTMETRICS metrics;
+   metrics.cbSize = sizeof(NONCLIENTMETRICS);
+   BOOL result = SystemParametersInfo(SPI_GETNONCLIENTMETRICS, sizeof(NONCLIENTMETRICS), &metrics, 0);
+   HFONT font = CreateFontIndirect(&metrics.lfCaptionFont);
+   SendMessage(zakladki, WM_SETFONT, (WPARAM)font, FALSE);
    for (int i=0; i<ILOSC_KATEGORII; i++)
    	{
       TC_ITEM zak;
