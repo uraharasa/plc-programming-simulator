@@ -121,6 +121,230 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Dragcopy.cur" />
+    <CustomBuild Include="help\cewka_r.htm">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">copy /Y "$(ProjectDir)help\header.htm" +"%(FullPath)" + "$(ProjectDir)help\footer.htm" "%(FullPath)l"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(FullPath)l</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+      </AdditionalInputs>
+    </CustomBuild>
+    <CustomBuild Include="help\cewka_rozwierna.htm">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">copy /Y "$(ProjectDir)help\header.htm" +"%(FullPath)" + "$(ProjectDir)help\footer.htm" "%(FullPath)l"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(FullPath)l</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+      </AdditionalInputs>
+    </CustomBuild>
+    <CustomBuild Include="help\cewka_S.htm">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">copy /Y "$(ProjectDir)help\header.htm" +"%(FullPath)" + "$(ProjectDir)help\footer.htm" "%(FullPath)l"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(FullPath)l</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+      </AdditionalInputs>
+    </CustomBuild>
+    <CustomBuild Include="help\cewka_zbocze_narastajace.htm">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">copy /Y "$(ProjectDir)help\header.htm" +"%(FullPath)" + "$(ProjectDir)help\footer.htm" "%(FullPath)l"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(FullPath)l</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+      </AdditionalInputs>
+    </CustomBuild>
+    <CustomBuild Include="help\cewka_zbocze_opadajace.htm">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">copy /Y "$(ProjectDir)help\header.htm" +"%(FullPath)" + "$(ProjectDir)help\footer.htm" "%(FullPath)l"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(FullPath)l</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+      </AdditionalInputs>
+    </CustomBuild>
+    <CustomBuild Include="help\cewka_zwierna.htm">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">copy /Y "$(ProjectDir)help\header.htm" +"%(FullPath)" + "$(ProjectDir)help\footer.htm" "%(FullPath)l"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(FullPath)l</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+      </AdditionalInputs>
+    </CustomBuild>
+    <None Include="help\footer.htm">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">copy /Y "$(ProjectDir)help\header.htm" +"%(FullPath)" + "$(ProjectDir)help\footer.htm" "%(FullPath)l"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(FullPath)l</Outputs>
+    </None>
+    <None Include="help\header.htm">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">copy /Y "$(ProjectDir)help\header.htm" +"%(FullPath)" + "$(ProjectDir)help\footer.htm" "%(FullPath)l"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(FullPath)l</Outputs>
+    </None>
+    <CustomBuild Include="help\lekcja1.htm">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">copy /Y "$(ProjectDir)help\header.htm" +"%(FullPath)" + "$(ProjectDir)help\footer.htm" "%(FullPath)l"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(FullPath)l</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+      </AdditionalInputs>
+    </CustomBuild>
+    <CustomBuild Include="help\lekcja1_1.htm">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">copy /Y "$(ProjectDir)help\header.htm" +"%(FullPath)" + "$(ProjectDir)help\footer.htm" "%(FullPath)l"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(FullPath)l</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+      </AdditionalInputs>
+    </CustomBuild>
+    <CustomBuild Include="help\lekcja1_2.htm">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">copy /Y "$(ProjectDir)help\header.htm" +"%(FullPath)" + "$(ProjectDir)help\footer.htm" "%(FullPath)l"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(FullPath)l</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+      </AdditionalInputs>
+    </CustomBuild>
+    <CustomBuild Include="help\lekcja1_3.htm">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">copy /Y "$(ProjectDir)help\header.htm" +"%(FullPath)" + "$(ProjectDir)help\footer.htm" "%(FullPath)l"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(FullPath)l</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+      </AdditionalInputs>
+    </CustomBuild>
+    <CustomBuild Include="help\lekcja1_4.htm">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">copy /Y "$(ProjectDir)help\header.htm" +"%(FullPath)" + "$(ProjectDir)help\footer.htm" "%(FullPath)l"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(FullPath)l</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+      </AdditionalInputs>
+    </CustomBuild>
+    <CustomBuild Include="help\lekcja2.htm">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">copy /Y "$(ProjectDir)help\header.htm" +"%(FullPath)" + "$(ProjectDir)help\footer.htm" "%(FullPath)l"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(FullPath)l</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+      </AdditionalInputs>
+    </CustomBuild>
+    <CustomBuild Include="help\lekcja3.htm">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">copy /Y "$(ProjectDir)help\header.htm" +"%(FullPath)" + "$(ProjectDir)help\footer.htm" "%(FullPath)l"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(FullPath)l</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+      </AdditionalInputs>
+    </CustomBuild>
+    <CustomBuild Include="help\lekcja4.htm">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">copy /Y "$(ProjectDir)help\header.htm" +"%(FullPath)" + "$(ProjectDir)help\footer.htm" "%(FullPath)l"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(FullPath)l</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+      </AdditionalInputs>
+    </CustomBuild>
+    <CustomBuild Include="help\lekcja5.htm">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">copy /Y "$(ProjectDir)help\header.htm" +"%(FullPath)" + "$(ProjectDir)help\footer.htm" "%(FullPath)l"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(FullPath)l</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+      </AdditionalInputs>
+    </CustomBuild>
+    <CustomBuild Include="help\licznik_dnctr.htm">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">copy /Y "$(ProjectDir)help\header.htm" +"%(FullPath)" + "$(ProjectDir)help\footer.htm" "%(FullPath)l"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(FullPath)l</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+      </AdditionalInputs>
+    </CustomBuild>
+    <CustomBuild Include="help\licznik_upctr.htm">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">copy /Y "$(ProjectDir)help\header.htm" +"%(FullPath)" + "$(ProjectDir)help\footer.htm" "%(FullPath)l"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(FullPath)l</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+      </AdditionalInputs>
+    </CustomBuild>
+    <CustomBuild Include="help\math_add.htm">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">copy /Y "$(ProjectDir)help\header.htm" +"%(FullPath)" + "$(ProjectDir)help\footer.htm" "%(FullPath)l"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(FullPath)l</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+      </AdditionalInputs>
+    </CustomBuild>
+    <CustomBuild Include="help\math_div.htm">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">copy /Y "$(ProjectDir)help\header.htm" +"%(FullPath)" + "$(ProjectDir)help\footer.htm" "%(FullPath)l"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(FullPath)l</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+      </AdditionalInputs>
+    </CustomBuild>
+    <CustomBuild Include="help\math_mod.htm">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">copy /Y "$(ProjectDir)help\header.htm" +"%(FullPath)" + "$(ProjectDir)help\footer.htm" "%(FullPath)l"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(FullPath)l</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+      </AdditionalInputs>
+    </CustomBuild>
+    <CustomBuild Include="help\math_mul.htm">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">copy /Y "$(ProjectDir)help\header.htm" +"%(FullPath)" + "$(ProjectDir)help\footer.htm" "%(FullPath)l"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(FullPath)l</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+      </AdditionalInputs>
+    </CustomBuild>
+    <CustomBuild Include="help\math_sqrt.htm">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">copy /Y "$(ProjectDir)help\header.htm" +"%(FullPath)" + "$(ProjectDir)help\footer.htm" "%(FullPath)l"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(FullPath)l</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+      </AdditionalInputs>
+    </CustomBuild>
+    <CustomBuild Include="help\math_sub.htm">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">copy /Y "$(ProjectDir)help\header.htm" +"%(FullPath)" + "$(ProjectDir)help\footer.htm" "%(FullPath)l"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(FullPath)l</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+      </AdditionalInputs>
+    </CustomBuild>
+    <CustomBuild Include="help\relacja_mniejszy.htm">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">copy /Y "$(ProjectDir)help\header.htm" +"%(FullPath)" + "$(ProjectDir)help\footer.htm" "%(FullPath)l"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(FullPath)l</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+      </AdditionalInputs>
+    </CustomBuild>
+    <CustomBuild Include="help\relacja_mniejszyrowny.htm">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">copy /Y "$(ProjectDir)help\header.htm" +"%(FullPath)" + "$(ProjectDir)help\footer.htm" "%(FullPath)l"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(FullPath)l</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+      </AdditionalInputs>
+    </CustomBuild>
+    <CustomBuild Include="help\relacja_nierowny.htm">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">copy /Y "$(ProjectDir)help\header.htm" +"%(FullPath)" + "$(ProjectDir)help\footer.htm" "%(FullPath)l"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(FullPath)l</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+      </AdditionalInputs>
+    </CustomBuild>
+    <CustomBuild Include="help\relacja_rowny.htm">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">copy /Y "$(ProjectDir)help\header.htm" +"%(FullPath)" + "$(ProjectDir)help\footer.htm" "%(FullPath)l"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(FullPath)l</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+      </AdditionalInputs>
+    </CustomBuild>
+    <CustomBuild Include="help\relacja_wiekszy.htm">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">copy /Y "$(ProjectDir)help\header.htm" +"%(FullPath)" + "$(ProjectDir)help\footer.htm" "%(FullPath)l"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(FullPath)l</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+      </AdditionalInputs>
+    </CustomBuild>
+    <CustomBuild Include="help\relacja_wiekszyrowny.htm">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">copy /Y "$(ProjectDir)help\header.htm" +"%(FullPath)" + "$(ProjectDir)help\footer.htm" "%(FullPath)l"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(FullPath)l</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+      </AdditionalInputs>
+    </CustomBuild>
+    <CustomBuild Include="help\relacja_zakres.htm">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">copy /Y "$(ProjectDir)help\header.htm" +"%(FullPath)" + "$(ProjectDir)help\footer.htm" "%(FullPath)l"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(FullPath)l</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+      </AdditionalInputs>
+    </CustomBuild>
+    <CustomBuild Include="help\start.htm">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">copy /Y "$(ProjectDir)help\header.htm" +"%(FullPath)" + "$(ProjectDir)help\footer.htm" "%(FullPath)l"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(FullPath)l</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+      </AdditionalInputs>
+    </CustomBuild>
+    <CustomBuild Include="help\styk_rozwierny.htm">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">copy /Y "$(ProjectDir)help\header.htm" +"%(FullPath)" + "$(ProjectDir)help\footer.htm" "%(FullPath)l"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(FullPath)l</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+      </AdditionalInputs>
+    </CustomBuild>
+    <CustomBuild Include="help\styk_zwierny.htm">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">copy /Y "$(ProjectDir)help\header.htm" +"%(FullPath)" + "$(ProjectDir)help\footer.htm" "%(FullPath)l"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(FullPath)l</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+      </AdditionalInputs>
+    </CustomBuild>
+    <CustomBuild Include="help\timer_ofdt.htm">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">copy /Y "$(ProjectDir)help\header.htm" +"%(FullPath)" + "$(ProjectDir)help\footer.htm" "%(FullPath)l"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(FullPath)l</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+      </AdditionalInputs>
+    </CustomBuild>
+    <CustomBuild Include="help\timer_ondtr.htm">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">copy /Y "$(ProjectDir)help\header.htm" +"%(FullPath)" + "$(ProjectDir)help\footer.htm" "%(FullPath)l"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(FullPath)l</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+      </AdditionalInputs>
+    </CustomBuild>
+    <CustomBuild Include="help\timer_tmr.htm">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">copy /Y "$(ProjectDir)help\header.htm" +"%(FullPath)" + "$(ProjectDir)help\footer.htm" "%(FullPath)l"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(FullPath)l</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+      </AdditionalInputs>
+    </CustomBuild>
     <None Include="toolbar.bmp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

@@ -13,6 +13,11 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Help Files">
+      <UniqueIdentifier>{35c62782-90a5-4f24-9e01-b7b4c07d6604}</UniqueIdentifier>
+      <Extensions>
+      </Extensions>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="about.cpp">
@@ -172,7 +177,7 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ResourceCompile Include="plc2.rc">
+    <ResourceCompile Include="plc.rc">
       <Filter>Resource Files</Filter>
     </ResourceCompile>
   </ItemGroup>
@@ -183,5 +188,121 @@
     <None Include="Dragcopy.cur">
       <Filter>Resource Files</Filter>
     </None>
+    <None Include="help\header.htm">
+      <Filter>Help Files</Filter>
+    </None>
+    <None Include="help\footer.htm">
+      <Filter>Help Files</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="help\cewka_r.htm">
+      <Filter>Help Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="help\timer_ondtr.htm">
+      <Filter>Help Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="help\timer_ofdt.htm">
+      <Filter>Help Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="help\styk_zwierny.htm">
+      <Filter>Help Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="help\styk_rozwierny.htm">
+      <Filter>Help Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="help\start.htm">
+      <Filter>Help Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="help\relacja_zakres.htm">
+      <Filter>Help Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="help\relacja_wiekszyrowny.htm">
+      <Filter>Help Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="help\relacja_wiekszy.htm">
+      <Filter>Help Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="help\relacja_rowny.htm">
+      <Filter>Help Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="help\relacja_nierowny.htm">
+      <Filter>Help Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="help\relacja_mniejszyrowny.htm">
+      <Filter>Help Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="help\relacja_mniejszy.htm">
+      <Filter>Help Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="help\math_sub.htm">
+      <Filter>Help Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="help\math_sqrt.htm">
+      <Filter>Help Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="help\math_mul.htm">
+      <Filter>Help Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="help\math_mod.htm">
+      <Filter>Help Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="help\math_div.htm">
+      <Filter>Help Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="help\math_add.htm">
+      <Filter>Help Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="help\licznik_upctr.htm">
+      <Filter>Help Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="help\licznik_dnctr.htm">
+      <Filter>Help Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="help\lekcja5.htm">
+      <Filter>Help Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="help\lekcja4.htm">
+      <Filter>Help Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="help\lekcja3.htm">
+      <Filter>Help Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="help\lekcja2.htm">
+      <Filter>Help Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="help\lekcja1_4.htm">
+      <Filter>Help Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="help\lekcja1_3.htm">
+      <Filter>Help Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="help\lekcja1_2.htm">
+      <Filter>Help Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="help\lekcja1_1.htm">
+      <Filter>Help Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="help\lekcja1.htm">
+      <Filter>Help Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="help\cewka_zwierna.htm">
+      <Filter>Help Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="help\cewka_zbocze_opadajace.htm">
+      <Filter>Help Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="help\cewka_zbocze_narastajace.htm">
+      <Filter>Help Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="help\cewka_S.htm">
+      <Filter>Help Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="help\timer_tmr.htm">
+      <Filter>Help Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="help\cewka_rozwierna.htm">
+      <Filter>Help Files</Filter>
+    </CustomBuild>
   </ItemGroup>
 </Project>

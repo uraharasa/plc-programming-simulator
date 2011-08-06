@@ -1,0 +1,71 @@
+﻿<h2>
+    Lekcja 1 - Wprowadzenie
+</h2>
+<p>
+    Jeśli jeszcze nigdy nie spotkałeś się ze sterownikiem PLC, na pewno zastanawiasz
+    się, co to takiego. Jak zapewne wiesz jeszcze do niedawna wszystkie linie produkcyjne,
+    czy procesy technologiczne sterowane były przez układy przekaźnikowe. Wszechobecne
+    szafy z przekaźnikami miały jednak wiele wad. Styki przekaźników z czasem ulegały
+    uszkodzeniom, a ich koszt nie był mały. Jakakolwiek zmiana w sterowaniu procesem
+    musiała być uwzględniona przez ponowne zaprojektowanie układu przekaźników. No i
+    ostatecznie rozmiar - nie były to układy małe. Wraz z popularyzacją techniki cyfrowej
+    pojawiły się układy zastępujące szafy z przekaźnikami. Właśnie takim uniwersalnym
+    układem jest sterownik PLC (Programmable Logic Controller - Programowalny Sterownik
+    Logiczny). Jak taki sterownik wygląda? Oto jeden z modeli oferowanych przez firmę
+    GeFanuc:
+</p>
+<img class="example" src="sterownik.jpg">
+<p>
+    Jest to sterownik w wersji Micro, tzn. w jednej obudowie zawiera układy wejścia/wyjścia,
+    procesor itp. i jest zdolny do samodzielnej pracy. Bardziej zaawansowane sterowniki
+    mają budowę modułową - montuje je się na specjalnej ramce zawierającej linie transmisji
+    danych, w którą wpina się potrzebne części. Jeśli potrzeba nam np. 30 wejść, a dostępne
+    mamy moduły po 10 wejść każdy, to można wpiąć 3 takie moduły i po odpowiednim skonfigurowaniu
+    korzystać z nich bez żadnego kłopotu.
+</p>
+<p>
+    Niniejszy program stawia sobie szczytny cel nauczenia Cię programowania sterowników
+    PLC. Ale nie bój się! Jest to prostsze niż się wydaje. Przez kilka lat rozwoju sterowników
+    PLC pojawiło się kilka języków ich programowania. Bezsprzecznie najpopularniejszym
+    z nich został tzw. język drabinkowy. Swoją popularność zawdzięcza prostocie, a także
+    dużemu podobieństwu do schematów układów przekaźnikowych. Spójrz na poniższe obrazki:
+</p>
+<img class="example" src="schematy.gif">
+<p>
+    Po lewej stronie znajduje się schemat układu przekaźnikowego, a po prawej jego odpowiednik
+    w języku drabinkowym. Podobieństwo widać od ręki. Przyjrzyjmy się teraz programowi
+    do nauki. Nie zamykaj okna z pomocą, tylko przełącz się na okno programu i wybierz
+    z menu Lekcje opcję Lekcja 1, a następnie wróć do przeglądarki z pomocą. Oczom naszym
+    ukazują się trzy okna. Omówię funkcję każdego z nich.
+</p>
+<img class="example" src="okno_wykonawcze.gif">
+<p>
+    W oknie zatytułowanym "Układ wykonawczy" widać elementy podłączone do sterownika.
+    W lekcji pierwszej są to żarówki, wentylator, przełączniki, przyciski i potencjometry,
+    w lekcjach kolejnych będzie to basen, pralka, fabryka oranżady i winda. Na niektóre
+    elementy można wpływać myszką. Spróbuj np. kliknąć kilka razy na pierwszym z lewej
+    przełączniku. W kolejnych krokach będziemy tworzyć programy sterujące każdym z tych
+    elementów. Przejdźmy teraz do drugiego okna:
+</p>
+<img class="example" src="okno_elementow.gif">
+<p>
+    W tym oknie znajdują się elementy, które można użyć przy programowaniu sterownika.
+    Nazywać je będziemy również rozkazami lub funkcjami. Wszystkie rozkazy są posegregowane
+    według spełnianych funkcji. Klikając na zakładkach (Styki, Cewki, Liczniki itd.)
+    można obejrzeć wszystkie dostępne elementy. Nie obawiaj się ich ilości, bo większość
+    z nich spełnia podobne funkcje. Jeśli w trakcie programowania chciałbyś dowiedzieć
+    się czegoś o jakimś elemencie, możesz kliknąć na nim prawym przyciskiem myszy i
+    wybrać "pomoc". Twoim oczom ukaże się opis działania elementu. Ostatnim oknem jest:
+</p>
+<img class="example" src="okno_programu.gif">
+<p>
+    Jak na razie nie przedstawia się zbyt atrakcyjnie, ale jest to niejako najważniejsze
+    z wszystkich trzech okien. To w nim będzie powstawał nasz program dla sterownika.
+    Czarna pionowa linia z lewej strony to "zasilanie", a czarna z prawej to "masa".
+    Pomiędzy nimi znajduje się niebieska przerywana linia oddzielająca elementy logiczne
+    od cewek. Nie martw się, jeśli coś z tego nie rozumiesz - wszystko wyklaruje się
+    po drodze.
+</p>
+<p>
+    Kliknij <a href="lekcja1_1.html">tutaj</a> aby przejść dalej.
+</p>

@@ -1,0 +1,65 @@
+﻿<h2>
+    Lekcja 3
+</h2>
+<p>
+    W lekcji trzeciej zajmiemy się obsługą linii produkcyjnej. Naszym zadaniem jest
+    produkcja oranżady, która okazuje się nieodzowna w życiu każdego ucznia.
+</p>
+<p>
+    Po włączeniu lekcji trzeciej oczom naszym ukazuje się "fabryka":
+</p>
+<img class="example" src="oranzada.jpg">
+<p>
+    Produkcja butelek odbywa się w dwóch etapach. Po taśmie produkcyjnej puste butelki
+    wędrują do układu napełniającego je oranżadą. W drugim etapie napełnione butelki
+    są kapslowane i zjeżdżają z taśmy (do wykwalifikowanych pracowników pakujących napoje
+    w skrzynki).
+</p>
+<p>
+    Sterowanie pierwszym etapem produkcji (napełnianie) odbywa się w następujący sposób:
+    <ul>
+        <li>Rurkę (ukrytą w lejku), z której nalewana jest oranżada można podnosić i opuszczać.
+            Aby butelka mogła przejechać, lejek musi być podniesiony. Sterowanie kierunkiem
+            ruchu lejka odbywa się przez komórkę LEJEK.</li>
+        <li>Można otworzyć lub zamknąć dopływ oranżady. Aby oranżada nie rozlewała się po hali
+            produkcyjnej, w trakcie nalewania butelka musi być schowana pod lejkiem. Sterowanie
+            dopływem odbywa się przez komórkę DOPŁYW.</li>
+        <li>Dostępny jest czujnik obecności butelki pod lejkiem. Jego aktywność może np. aktywować
+            opuszczenie lejka. Dostępny jest on w komórce PRZY_DOP.</li>
+    </ul>
+</p>
+<p>
+    Sterowanie drugim etapem produkcji (kapslowanie) odbywa się w następujący sposób:
+    <ul>
+        <li>Pierwsze z ruchomych ramion (większe) służy do ustawienia butelki dokładnie pod
+            kapslem, a także do przytrzymania jej w miejscu podczas nakładania kapsla. Sterowanie
+            ruchem góra-dół tej części odbywa się poprzez komorkę KAPSEL.</li>
+        <li>Drugie ramię jest tłokiem wciskającym kapsel na butelkę. Na jego końcu znajduje
+            się kapsel, automatycznie nakładany, jeśli tłok znajdzie się w skrajnie górnej pozycji.
+            Sterowanie góra-dół tym tłokiem odbywa się przez komórkę TŁOK.</li>
+        <li>Dostępny jest czujnik obecności butelki pod tłokiem. Jego aktywność może np. aktywować
+            założenie kapsla. Dostępny jest on w komórce PRZY_KAP.</li>
+    </ul>
+</p>
+<p>
+    Dodatkowo musimy sterować przesuwem linii produkcyjnej. Linia porusza się tylko
+    w jednym kierunku (w prawo). O tym, czy linia stoi, czy się przesuwa decyduje stan
+    komórki TAŚMA.
+</p>
+<p>
+    Naszym zadaniem jest uruchomienie produkcji. Należy przesuwając kolejne butelki
+    po linii produkcyjnej napełniać je i kapslować. Nasz program napiszemy metodą kolejnych
+    przybliżeń, co krok dodając nową cechę.
+</p>
+<h2>
+    Zadania do wykonania:
+</h2>
+<ol>
+    <li>Napisz program, w którym linia produkcyjna przesuwa pierwszą butelkę aż do lejka
+        (aż zadziała czujnik PRZY_DOP).</li>
+    <li>Dopisz do poprzedniego programu opuszczanie lejka, gdy znajdzie się pod nim butelka
+        , a następnie napełnianie jej oranżadą (wykorzystaj timer).</li>
+    <li>Uzupełnij poprzedni program o podniesienie lejka po napełnieniu i ponowne uruchomienie
+        przesuwu linii produkcyjnej.</li>
+    <li>Dodaj kapslowanie butelek w analogiczny sposób.</li>
+</ol>

@@ -1,0 +1,50 @@
+﻿<h2>
+    Lekcja 4
+</h2>
+<p>
+    W tej lekcji zajmiemy się kwintesencją automatyki. Bo z czym innym, jak nie z pralką
+    automatyczną, kojarzy nam się od razu słowo "automatyka" ?
+</p>
+<p>
+    Po włączeniu lekcji czwartej oczom naszym ukazuje się pralka "Frania 2000":
+</p>
+<img class="example" src="pralka.jpg">
+<p>
+    Nasza pralka wyposażona jest w nowoczesne mechanizmy zapewniające gruntowne pranie
+    ubrań. Od naszej praleczki wymagamy przede wszystkim prostoty używania. Ustawiamy
+    żądaną temperaturę wody, wciskamy przycisk P i możemy iść na kawę. Pralka powinna
+    pobrać wodę, ogrzać ją do żądanej temperatury i zapewnić dokładne przepłukanie każdej
+    plamy poprzez kręcenie bębnem na przemian w obie strony. Po kilku chwilach pralka
+    powinna wypuścić brudną wodę i kilkakrotnie przepłukać ubrania pobierając i wypuszczając
+    wodę, oczywiście cały czas "mieląc" bębnem. Na koniec, już bez wody w bębnie, trzeba
+    kilka razy nim pokręcić, aby wycisnąć nadmiar wody z ubrań. Wszystko jasne? Więc
+    do roboty!
+</p>
+<p>
+    Do sterowania pralką dostępne mamy następujące wejścia i wyjścia:
+    <ul>
+        <li>Wejście podłączone do przycisku P. Wciśnięcie przycisku powoduje pojawienie się
+            na wejściu jedynki przez jeden cykl sterownika. Oznaczone jako PRANIE.</li>
+        <li>Wyjścia sterujące bębnem. Będnem steruje się z wykorzystniem dwóch wyjść. Jedno
+            z nich wybiera, czy bęben stoi, czy się kręci (BĘBEN), drugie wybiera kierunek obrotów
+            (KIER_BĘB).</li>
+        <li>Wyjścia sterujące obiegiem wody. Za dopływ wody odpowiada wyjście DOPŁYW, za odpływ
+            - ODPŁYW.</li>
+        <li>Wyjście sterujące grzałką. Oznaczone ono jest jako GRZAŁKA. UWAGA! Włączenie grzałki
+            przy braku wody, lub przekroczenie temperatury 100 C kończy się spaleniem grzałki.</li>
+        <li>Wejście analogowe do pomiaru poziomu wody, oznaczone POZIOM. Wartości na wejściu
+            zmieniają się w zakresie 0 - 500 jednostek, co oznacza odpowiednio brak wody i pełen
+            bęben.</li>
+        <li>Wejścia analogowe służące do pomiaru temperatury. Jedno z wejść podaje żądaną nastawioną
+            temperaturę (NAST_TEMP). Wartości na tym wejściu zmieniają się w zakresie 0 - 100,
+            co odpowiada zakresowi temperatur 30 - 80. Drugie z wejść podaje pomiar aktualnej
+            temperatury na czujniku temperatury (CZUJ_TEMP). Wartości na tym wejściu zmieniają
+            się w zakresie 10 - 90, co bezpośrednio odpowiada ilości stopni Celsjusza. Należy
+            pamiętać, że wartość odczytana z czujnika temperatury nie oznacza faktycznej temperatury
+            wody, potrzeba trochę czasu, zanim czujnik "nabije" do faktycznego stanu.</li>
+    </ul>
+</p>
+<p>
+    Wlewana woda ma temperaturę 16 C i jedynym sposobem na schłodzenie wody w bębnie
+    jest dolanie zimnej wody.
+</p>

@@ -1,0 +1,123 @@
+﻿<h2>
+    Symbol rozkazu:
+</h2>
+<img class="symbol" src="timer_tmr.gif">
+<h2>
+    Opis działania:
+</h2>
+<p>
+    Timer TMR ma za zadanie odmierzać podaną ilość czasu. Na wejściu PV podaje się żądany
+    czas ( = wartość * 10 ms). Jeśli na wejściu przez dany okres czasu utrzyma się stan
+    wysoki, to wyjście timera przyjmie stan wysoki. Pojawienie się na wejściu stanu
+    niskiego powoduje zresetowanie timera.
+</p>
+<p>
+    Oto przykładowe przebiegi czasowe timera TMR:
+    <img class="example" src="timer_tmr_przebieg.gif">
+    <ul>
+        <li>A - wejście przyjmuje stan wysoki; timer rozpoczyna zliczanie czasu.</li>
+        <li>B - zliczona wartość czasu zrównuje się z PV; wyjście przechodzi w stan wysoki i
+            timer kontynuuje zliczanie czasu.</li>
+        <li>C - wejście przybiera stan niski; wyjście również przyjmuje stan niski i timer zostaje
+            zresetowany.</li>
+        <li>D - wejście przechodzi w stan wysoki; timer rozpoczyna odliczanie czasu.</li>
+        <li>E - wejście przechodzi w stan niski zanim timer osiągnie wartość PV; wyjście pozostaje
+            w stanie niskim, timer jest resetowany</li>
+    </ul>
+</p>
+<p>
+    Timer w czasie pracy przechowuje swój stan w pamięci sterownika. Do zachowania całego
+    stanu potrzebuje trzech komórek pamięci. Adres bazowy pokazuje na pierwszą z tych
+    trzech komórek. Istotną sprawą przy programowaniu sterowników jest to, aby żadne
+    dwa bloki funkcyjne nie trzymały swoich danych w tych samych obszarach. Jeśli np.
+    dla jednego timera wybierzemy jako adres bazowy komórkę %R0005, to oznacza to, że
+    komórki %R0006 i %R0007 są zajęte przez ten timer. Inna funkcja może użyć dopiero
+    adresu %R0008.
+</p>
+<p>
+    Jeśli zajdzie konieczność odczytania ilości aktualnie zliczonego czasu, można odczytać
+    ją spod adresu równego adresowi bazowemu.
+</p>
+<h2>
+    Dopuszczalne typy pamięci:
+</h2>
+<table class="memory">
+    <tr>
+        <td>
+            Parametr
+        </td>
+        <td>
+            %I
+        </td>
+        <td>
+            %Q
+        </td>
+        <td>
+            %R
+        </td>
+        <td>
+            %M
+        </td>
+        <td>
+            %AI
+        </td>
+        <td>
+            %AQ
+        </td>
+        <td>
+            const
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Adres bazowy
+        </td>
+        <td>
+            nie
+        </td>
+        <td>
+            nie
+        </td>
+        <td>
+            tak
+        </td>
+        <td>
+            nie
+        </td>
+        <td>
+            nie
+        </td>
+        <td>
+            nie
+        </td>
+        <td>
+            nie
+        </td>
+    </tr>
+    <tr>
+        <td>
+            PV
+        </td>
+        <td>
+            nie
+        </td>
+        <td>
+            nie
+        </td>
+        <td>
+            tak
+        </td>
+        <td>
+            tak
+        </td>
+        <td>
+            tak
+        </td>
+        <td>
+            nie
+        </td>
+        <td>
+            tak
+        </td>
+    </tr>
+</table>

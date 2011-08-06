@@ -1,0 +1,85 @@
+﻿<p>
+    Kliknij <a href="lekcja1.html">tutaj</a> aby wrócić do poprzedniego etapu.
+</p>
+<h2>
+    Lekcja 1 - Pierwszy program
+</h2>
+<p>
+    Napiszmy nasz pierwszy program! Dzięki niemu będziemy mogli sterować zapalaniem
+    pierwszej z żarówek za pomocą pierwszego przełącznika. Oto instrukcja krok po kroku:
+    <ul>
+        <li>W oknie z elementami wybierz kategorię "Styki"</li>
+        <li>Wciśnij lewy klawisz na myszy na elemencie "styk zwierny"
+            <img class="example" src="krok1.gif">
+        </li>
+        <li>Wciąż trzymając lewy klawisz przeciągnij kursor myszki nad okno "Program LD", z
+            lewej strony niebieskiej linii.
+            <img class="example" src="krok2.gif">
+        </li>
+        <li>Puść lewy klawisz myszy, a element "wskoczy" na swoje miejsce w programie.
+            <img class="example" src="krok3.gif">
+        </li>
+        <li>Teraz wybierz kategorię "Cewki"</li>
+        <li>Jak poprzednio wciśnij lewy klawisz myszy, tym razem na elemencie "cewka zwierna"
+            <img class="example" src="krok4.gif">
+        </li>
+        <li>Przeciągnij go nad okno "Program LD", tym razem z prawej strony niebieskiej linii.
+            <img class="example" src="krok5.gif">
+        </li>
+        <li>Puść lewy klawisz myszy, a element znów "wskoczy" na swoje miejsce.
+            <img class="example" src="krok6.gif">
+        </li>
+    </ul>
+</p>
+<p>
+    To jest już zalążek naszego pierwszego programu. Czerwone znaki zapytania mówią
+    nam, że jeszcze nie ustawiliśmy parametrów danego elementu. Zrobimy to teraz. W
+    tym celu dwukrotnie kliknij na elemencie z lewej. Pojawi się okienko:
+    <img class="example" src="krok7.gif">
+    W górnej części pokazany jest symbol zmienianego elementu. Niżej znajdują się wypisane
+    wszystkie parametry elementu (w tym przypadku jest to tylko "Adres bazowy"). Na
+    samym dole znajduje się przycisk zatwierdzający OK. Chcemy ustawić "Adres bazowy",
+    więc klikamy na przycisku "Zmień" z prawej strony napisu. Pojawi się jeszcze jedno
+    okno:
+    <img class="example" src="krok8.gif">
+    Tutaj wybieramy, na co ma reagować nasz styk zwierny. Możemy to zrobić na dwa sposoby.
+    Pierwszy, trudniejszy, polega na wybraniu typu pamięci (Wejście cyfrowe I) oraz
+    adresu w pamięci (Numer wejścia : 0). Drugi, łatwiejszy, polega na wybraniu z rozwijanej
+    listy obok napisu "Wybór gotowego adresu :" opcji BISTAB_1, czyli pierwszy przełącznik
+    bistabilny. Klikamy OK. Na symbolu elementu widać, że zniknęły znaki zapytania,
+    a pojawił się napis BISTAB_1, czyli wybrane przez nas wejście sterownika. Klikamy
+    jeszcze raz OK. Ta sama zmiana zaszła również w naszym pierwszym programie.
+</p>
+<p>
+    Teraz analogicznie ustaw cewkę zwierną (nasz drugi element), aby podłączona była
+    do pierwszej żółtej żarówki (ŻÓŁTA_1).
+</p>
+<p>
+    W ten sposób napisałeś swój pierwszy program! Ale jak sprawdzić, czy działa? Wystarczy
+    uruchomić pracę sterownika. Wybierz z menu "Praca PLC" opcję "Start", albo po prostu
+    wciśnij przycisk
+    <img class="icon" src="play.gif">
+    na belce narzędziowej. Teraz, gdy sterownik pracuje, spróbuj przełączać w oknie
+    "Układ wykonawczy" pierwszy z lewej przełącznik klikając na nim. Jeśli wszystko
+    wykonałeś prawidłowo, zmianom pozycji przełącznika powinno towarzyszyć zapalanie
+    i gaszenie się pierwszej z lewej żółtej żarówki. Jeśli coś nie działa nie martw
+    się! Spróbuj wszystko wykonać od początku.
+</p>
+<p>
+    Robiłeś wszystko jak kazałem, ale wciąż nie wiesz jak działa program. Wykorzystaliśmy
+    w nim dwa elementy: styk zwierny i cewkę zwierną. Na nasz program możesz patrzeć
+    jak na schemat elektryczny. "Prąd" płynie z lewa na prawo. Najpierw natrafia na
+    styk zwierny. Jeśli wejście sterownika wybrane dla tego styku (w naszym przypadku
+    jest to BISTAB_1) znajduje się w stanie wysokim, to styk będzie "prąd" przewodził.
+    Z kolei cewka zwierna, gdy jest zasilana, to ustawia w stan wysoki wybrane wyjście
+    sterownika (ŻÓŁTA_1). Jeśli prąd do niej nie dopływa, to ustawia wybrane wyjście
+    w stan niski. W naszym przypadku więc załączenie przełącznika powoduje załaczenie
+    żarówki. Rozłączenie przełącznika, powoduje wyłaczenie żarówki.
+</p>
+<p>
+    W następnym etapie dowiesz się w jaki sposób tak naprawdę działa sterownik i jak
+    ma zorganizowaną pamięć.
+</p>
+<p>
+    Kliknij <a href="lekcja1_2.html">tutaj</a> aby przejść dalej.
+</p>

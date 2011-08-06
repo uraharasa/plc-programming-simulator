@@ -1,0 +1,125 @@
+﻿<h2>
+    Symbol rozkazu:
+</h2>
+<img class="symbol" src="timer_ofdt.gif">
+<h2>
+    Opis działania:
+</h2>
+<p>
+    Timer OFDT (off-delay timer) ma za zadanie opóźniać opadające zbocze sygnału wejściowego.
+    Ilość czasu, o jaką chcemy opóźnić zbocze, podaje się na wejście PV (= wartość *
+    10 ms).
+</p>
+<p>
+    Oto przykładowe przebiegi czasowe timera OFDT:
+    <img class="example" src="timer_ofdt_przebieg.gif">
+    <ul>
+        <li>A - wejście przechodzi w stan wysoki; wyjście przechodzi w stan wysoki, timer jest
+            resetowany.</li>
+        <li>B - wejście przechodzi w stan niski; timer rozpoczyna zliczanie czasu.</li>
+        <li>C - zliczony czas osiągnął wartość PV; wyjście przechodzi w stan niski i timer przestaje
+            zliczać czas.</li>
+        <li>D - wejście przechodzi w stan wysoki; timer jest resetowany.</li>
+        <li>E - wejście przechodzi w stan niski; timer rozpoczyna zliczanie czasu.</li>
+        <li>F - wejście przechodzi w stan wysoki; timer jest resetowany.</li>
+        <li>G - wejście przechodzi w stan niski; timer rozpoczyna zliczanie czasu.</li>
+        <li>H - zliczony czas osiągnął wartość PV; wyjście przechodzi w stan niski i timer przestaje
+            zliczać czas.</li>
+    </ul>
+</p>
+<p>
+    Timer w czasie pracy przechowuje swój stan w pamięci sterownika. Do zachowania całego
+    stanu potrzebuje trzech komórek pamięci. Adres bazowy pokazuje na pierwszą z tych
+    trzech komórek. Istotną sprawą przy programowaniu sterowników jest to, aby żadne
+    dwa bloki funkcyjne nie trzymały swoich danych w tych samych obszarach. Jeśli np.
+    dla jednego timera wybierzemy jako adres bazowy komórkę %R0005, to oznacza to, że
+    komórki %R0006 i %R0007 są zajęte przez ten timer. Inna funkcja może użyć dopiero
+    adresu %R0008.
+</p>
+<p>
+    Jeśli zajdzie konieczność odczytania ilości aktualnie zliczonego czasu, można odczytać
+    ją spod adresu równego adresowi bazowemu.
+</p>
+<h2>
+    Dopuszczalne typy pamięci:
+</h2>
+<table class="memory">
+    <tr>
+        <td>
+            Parametr
+        </td>
+        <td>
+            %I
+        </td>
+        <td>
+            %Q
+        </td>
+        <td>
+            %R
+        </td>
+        <td>
+            %M
+        </td>
+        <td>
+            %AI
+        </td>
+        <td>
+            %AQ
+        </td>
+        <td>
+            const
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Adres bazowy
+        </td>
+        <td>
+            nie
+        </td>
+        <td>
+            nie
+        </td>
+        <td>
+            tak
+        </td>
+        <td>
+            nie
+        </td>
+        <td>
+            nie
+        </td>
+        <td>
+            nie
+        </td>
+        <td>
+            nie
+        </td>
+    </tr>
+    <tr>
+        <td>
+            PV
+        </td>
+        <td>
+            nie
+        </td>
+        <td>
+            nie
+        </td>
+        <td>
+            tak
+        </td>
+        <td>
+            tak
+        </td>
+        <td>
+            tak
+        </td>
+        <td>
+            nie
+        </td>
+        <td>
+            tak
+        </td>
+    </tr>
+</table>

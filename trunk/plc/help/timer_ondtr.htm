@@ -1,0 +1,156 @@
+﻿<h2>
+    Symbol rozkazu:
+</h2>
+<img class="symbol" src="timer_ondtr.gif">
+<h2>
+    Opis działania:
+</h2>
+<p>
+    Timer ONDTR (on-delay timer) zwiększa zawartość wewnętrznego licznika o jeden, jeśli
+    dopływa do niego zasilanie. W przypadku przerwy w dopływie zasilania wartość wewnętrzengo
+    licznika jest zachowywana. Mierzony czas wyrażany jest w dziesiątkach milisekund.
+    Jeśli ilość zmierzonego czasu będzie równa lub większa od wartości podawanej na
+    wejście PV, na wyjściu pojawi się stan 1. W przeciwnym wypadku na wyjściu obecny
+    jest stan 0. Stan wewnętrznego licznika można wyzerować podając wartość różną od
+    zera na wejście RESET.
+</p>
+<p>
+    Oto przykładowe przebiegi czasowe timera ONDTR:
+    <img class="example" src="timer_ondtr_przebieg.gif">
+    <ul>
+        <li>A - na wejściu ENABLE pojawia się stan wysoki; timer zaczyna zliczać czas.</li>
+        <li>B - zliczony czas osiągnął wartość PV; wyjście przyjmuje stan wysoki.</li>
+        <li>C - na wejściu RESET pojawia się stan wysoki; wyjście przyjmuje stan niski, czas
+            zliczany jest ustawiany na 0.</li>
+        <li>D - RESET przechodzi w stan niski; timer znów zaczyna zliczać czas.</li>
+        <li>E - wejście ENABLE przyjmuje stan niski; timer przestaje zliczać, ale zapamiętuje
+            ilość zliczonego czasu.</li>
+        <li>F - wejście znów przechodzi w stan wysoki; timer kontynuuje zliczanie czasu.</li>
+        <li>G - zliczona wartość zrównuje się z PV; wyjście przyjmuje stan wysoki. Timer kontynuuje
+            zliczanie czasu dopóki ENABLE nie przyjmie stanu niskiego albo RESET nie przyjmie
+            stanu wysokiego.</li>
+        <li>H - ENABLE przyjmuje stan niski; timer przestaje zliczać czas.</li>
+    </ul>
+</p>
+<p>
+    Timer w czasie pracy przechowuje swój stan w pamięci sterownika. Do zachowania całego
+    stanu potrzebuje trzech komórek pamięci. Adres bazowy pokazuje na pierwszą z tych
+    trzech komórek. Istotną sprawą przy programowaniu sterowników jest to, aby żadne
+    dwa bloki funkcyjne nie trzymały swoich danych w tych samych obszarach. Jeśli np.
+    dla jednego timera wybierzemy jako adres bazowy komórkę %R0005, to oznacza to, że
+    komórki %R0006 i %R0007 są zajęte przez ten timer. Inna funkcja może użyć dopiero
+    adresu %R0008.
+</p>
+<p>
+    Jeśli zajdzie konieczność odczytania ilości aktualnie zliczonego czasu, można odczytać
+    ją spod adresu równego adresowi bazowemu.
+</p>
+<h2>
+    Dopuszczalne typy pamięci:
+</h2>
+<table class="memory">
+    <tr>
+        <td>
+            Parametr
+        </td>
+        <td>
+            %I
+        </td>
+        <td>
+            %Q
+        </td>
+        <td>
+            %R
+        </td>
+        <td>
+            %M
+        </td>
+        <td>
+            %AI
+        </td>
+        <td>
+            %AQ
+        </td>
+        <td>
+            const
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Adres bazowy
+        </td>
+        <td>
+            nie
+        </td>
+        <td>
+            nie
+        </td>
+        <td>
+            tak
+        </td>
+        <td>
+            nie
+        </td>
+        <td>
+            nie
+        </td>
+        <td>
+            nie
+        </td>
+        <td>
+            nie
+        </td>
+    </tr>
+    <tr>
+        <td>
+            R
+        </td>
+        <td>
+            tak
+        </td>
+        <td>
+            nie
+        </td>
+        <td>
+            tak
+        </td>
+        <td>
+            tak
+        </td>
+        <td>
+            nie
+        </td>
+        <td>
+            nie
+        </td>
+        <td>
+            nie
+        </td>
+    </tr>
+    <tr>
+        <td>
+            PV
+        </td>
+        <td>
+            nie
+        </td>
+        <td>
+            nie
+        </td>
+        <td>
+            tak
+        </td>
+        <td>
+            tak
+        </td>
+        <td>
+            tak
+        </td>
+        <td>
+            nie
+        </td>
+        <td>
+            tak
+        </td>
+    </tr>
+</table>
