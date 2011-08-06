@@ -1,0 +1,187 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="about.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="arytmetyka.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="bitmapy.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="bloki_funkcyjne.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cewki.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="element.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="help.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="lekcja.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="lekcja1.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="lekcja2.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="lekcja3.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="lekcja4.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="lekcja5.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="liczniki.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="narzedzia.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="obszar_aktywny.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="okno_glowne.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="pamiec.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="polaczenia.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="program_ld.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="relacje.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="rung.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="styki.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="timery.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="zmiana_parametrow.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="about.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="arytmetyka.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="bitmapy.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="bloki_funkcyjne.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cewki.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="element.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="help.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="lekcja.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="lekcja1.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="lekcja2.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="lekcja3.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="lekcja4.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="lekcja5.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="liczniki.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="narzedzia.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="obszar_aktywny.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="okno_glowne.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="pamiec.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="polaczenia.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="program_LD.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="relacje.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="rung.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="styki.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="timery.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="zmiana_parametrow.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="resource.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="plc2.rc">
+      <Filter>Resource Files</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="toolbar.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Dragcopy.cur">
+      <Filter>Resource Files</Filter>
+    </None>
+  </ItemGroup>
+</Project>

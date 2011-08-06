@@ -1,0 +1,129 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{60002EE0-C8DB-4611-BC07-A20D7E603A9A}</ProjectGuid>
+    <RootNamespace>plc</RootNamespace>
+    <ProjectName>plc</ProjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup />
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>comctl32.lib;winmm.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="about.cpp" />
+    <ClCompile Include="arytmetyka.cpp" />
+    <ClCompile Include="bitmapy.cpp" />
+    <ClCompile Include="bloki_funkcyjne.cpp" />
+    <ClCompile Include="cewki.cpp" />
+    <ClCompile Include="element.cpp" />
+    <ClCompile Include="help.cpp" />
+    <ClCompile Include="lekcja.cpp" />
+    <ClCompile Include="lekcja1.cpp" />
+    <ClCompile Include="lekcja2.cpp" />
+    <ClCompile Include="lekcja3.cpp" />
+    <ClCompile Include="lekcja4.cpp" />
+    <ClCompile Include="lekcja5.cpp" />
+    <ClCompile Include="liczniki.cpp" />
+    <ClCompile Include="narzedzia.cpp" />
+    <ClCompile Include="obszar_aktywny.cpp" />
+    <ClCompile Include="okno_glowne.cpp" />
+    <ClCompile Include="pamiec.cpp" />
+    <ClCompile Include="polaczenia.cpp" />
+    <ClCompile Include="program_ld.cpp" />
+    <ClCompile Include="relacje.cpp" />
+    <ClCompile Include="rung.cpp" />
+    <ClCompile Include="styki.cpp" />
+    <ClCompile Include="timery.cpp" />
+    <ClCompile Include="zmiana_parametrow.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="about.h" />
+    <ClInclude Include="arytmetyka.h" />
+    <ClInclude Include="bitmapy.h" />
+    <ClInclude Include="bloki_funkcyjne.h" />
+    <ClInclude Include="cewki.h" />
+    <ClInclude Include="element.h" />
+    <ClInclude Include="help.h" />
+    <ClInclude Include="lekcja.h" />
+    <ClInclude Include="lekcja1.h" />
+    <ClInclude Include="lekcja2.h" />
+    <ClInclude Include="lekcja3.h" />
+    <ClInclude Include="lekcja4.h" />
+    <ClInclude Include="lekcja5.h" />
+    <ClInclude Include="liczniki.h" />
+    <ClInclude Include="narzedzia.h" />
+    <ClInclude Include="obszar_aktywny.h" />
+    <ClInclude Include="okno_glowne.h" />
+    <ClInclude Include="pamiec.h" />
+    <ClInclude Include="polaczenia.h" />
+    <ClInclude Include="program_LD.h" />
+    <ClInclude Include="relacje.h" />
+    <ClInclude Include="resource.h" />
+    <ClInclude Include="rung.h" />
+    <ClInclude Include="styki.h" />
+    <ClInclude Include="timery.h" />
+    <ClInclude Include="zmiana_parametrow.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="plc.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Dragcopy.cur" />
+    <None Include="toolbar.bmp" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
