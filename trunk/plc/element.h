@@ -18,7 +18,7 @@ using namespace std;
 #define WERSJA_MINI		0x0004
 
 enum ZDARZENIE
-	{
+{
 	//zdarzenia generowane przez uzytkownika, obslugiwane przez klase
 	//"element_zwykly"
 
@@ -46,48 +46,48 @@ enum ZDARZENIE
 	//zastapiony przez "edytowany", ale nie ma zostac skasowany
 	ZASTAP_MNIE_I_NIE_KASUJ,
 
-   DODAJ_RUNG_ELEMENT,
-   DODAJ_RUNG_CEWKA,
-   DODAJ_DO_ELEMENTOW,
-   DODAJ_DO_CEWEK
-	};
+	DODAJ_RUNG_ELEMENT,
+	DODAJ_RUNG_CEWKA,
+	DODAJ_DO_ELEMENTOW,
+	DODAJ_DO_CEWEK
+};
 
 class element
-	{
-   protected:
-   	wstring nazwa;
-	public:
-   	element();
-   	wstring podaj_nazwe(void);
-		virtual void podaj_rozmiar(int & szerokosc, int & wysokosc, int tryb = 0) =0;
-		virtual int dzialaj(int wejscie) =0;
-		virtual void narysuj(HDC kontekst, int tryb, int x, int y) =0;
-      virtual void dodaj_hotspot(int x, int y) =0;
-		virtual ZDARZENIE edytuj(int x, int y, ZDARZENIE zdarzenie, element * &edytowany) =0;
-      virtual void zapisz(FILE * plik) = 0;
-      virtual ~element() {};
-	};
+{
+protected:
+	wstring nazwa;
+public:
+	element();
+	wstring podaj_nazwe(void);
+	virtual void podaj_rozmiar(int & szerokosc, int & wysokosc, int tryb = 0) =0;
+	virtual int dzialaj(int wejscie) =0;
+	virtual void narysuj(HDC kontekst, int tryb, int x, int y) =0;
+	virtual void dodaj_hotspot(int x, int y) =0;
+	virtual ZDARZENIE edytuj(int x, int y, ZDARZENIE zdarzenie, element * &edytowany) =0;
+	virtual void zapisz(FILE * plik) = 0;
+	virtual ~element() {};
+};
 
 class element_zwykly : public element
-	{
-   protected:
-      pamiec * adres_bazowy;
-      pamiec * * wejscia;
-      int il_wejsc;
-      pamiec * * wyjscia;
-      int il_wyjsc;
-	public:
-   	element_zwykly();
-      element_zwykly(FILE * plik);
-      ~element_zwykly();
-		virtual void podaj_rozmiar(int & szerokosc, int & wysokosc, int tryb = 0) =0;
-		virtual int dzialaj(int wejscie) =0;
-		virtual void narysuj(HDC kontekst, int tryb, int x, int y) =0;
-      virtual element * sklonuj(FILE * plik = NULL) =0;
-      virtual void zapisz(FILE * plik);
-      void dodaj_hotspot(int x, int y);
-		ZDARZENIE edytuj(int x, int y, ZDARZENIE zdarzenie, element * &edytowany);
-      friend void zmien_parametry_elementu(HWND okno, element_zwykly * aktualny);
-	};
+{
+protected:
+	pamiec * adres_bazowy;
+	pamiec * * wejscia;
+	int il_wejsc;
+	pamiec * * wyjscia;
+	int il_wyjsc;
+public:
+	element_zwykly();
+	element_zwykly(FILE * plik);
+	~element_zwykly();
+	virtual void podaj_rozmiar(int & szerokosc, int & wysokosc, int tryb = 0) =0;
+	virtual int dzialaj(int wejscie) =0;
+	virtual void narysuj(HDC kontekst, int tryb, int x, int y) =0;
+	virtual element * sklonuj(FILE * plik = NULL) =0;
+	virtual void zapisz(FILE * plik);
+	void dodaj_hotspot(int x, int y);
+	ZDARZENIE edytuj(int x, int y, ZDARZENIE zdarzenie, element * &edytowany);
+	friend void zmien_parametry_elementu(HWND okno, element_zwykly * aktualny);
+};
 
 #endif
