@@ -6,10 +6,10 @@
 using namespace std;
 
 class help
-	{
-   public:
-		void wyswietl(wstring topic);
-   };
+{
+public:
+	void wyswietl(wstring topic);
+};
 
 extern help pomoc;
 
