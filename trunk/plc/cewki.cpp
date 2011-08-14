@@ -3,7 +3,7 @@
 
 cewka::cewka(void)
 	{
-   adres_bazowy = new pamiec("", MOZNA_Q|MOZNA_R|MOZNA_M|MOZNA_AQ);
+   adres_bazowy = new pamiec(L"", MOZNA_Q|MOZNA_R|MOZNA_M|MOZNA_AQ);
    }
 
 cewka::cewka(FILE * plik): element_zwykly(plik)
@@ -17,12 +17,12 @@ void cewka::podaj_rozmiar(int & szerokosc, int & wysokosc, int tryb)
 
 cewka_zwierna::cewka_zwierna(void)
 	{
-   nazwa = "cewka_zwierna";
+   nazwa = L"cewka_zwierna";
    }
 
 cewka_zwierna::cewka_zwierna(FILE * plik): cewka(plik)
 	{
-   nazwa = "cewka_zwierna";
+   nazwa = L"cewka_zwierna";
    }
 
 element * cewka_zwierna::sklonuj(FILE * plik)
@@ -61,12 +61,12 @@ void cewka_zwierna::narysuj(HDC kontekst, int tryb, int x, int y)
 
 cewka_rozwierna::cewka_rozwierna(void)
 	{
-   nazwa = "cewka_rozwierna";
+   nazwa = L"cewka_rozwierna";
    }
 
 cewka_rozwierna::cewka_rozwierna(FILE * plik): cewka(plik)
 	{
-   nazwa = "cewka_rozwierna";
+   nazwa = L"cewka_rozwierna";
    }
 
 element * cewka_rozwierna::sklonuj(FILE * plik)
@@ -105,13 +105,13 @@ void cewka_rozwierna::narysuj(HDC kontekst, int tryb, int x, int y)
 
 cewka_zbocze_narastajace::cewka_zbocze_narastajace(void)
 	{
-   nazwa = "cewka_zbocze_narastajace";
+   nazwa = L"cewka_zbocze_narastajace";
    stan_poprzedni = 0;
    }
 
 cewka_zbocze_narastajace::cewka_zbocze_narastajace(FILE * plik): cewka(plik)
 	{
-   nazwa = "cewka_zbocze_narastajace";
+   nazwa = L"cewka_zbocze_narastajace";
    stan_poprzedni = 0;
    }
 
@@ -160,13 +160,13 @@ void cewka_zbocze_narastajace::narysuj(HDC kontekst, int tryb, int x, int y)
 
 cewka_zbocze_opadajace::cewka_zbocze_opadajace(void)
 	{
-   nazwa = "cewka_zbocze_opadajace";
+   nazwa = L"cewka_zbocze_opadajace";
    stan_poprzedni = 0;
    }
 
 cewka_zbocze_opadajace::cewka_zbocze_opadajace(FILE * plik): cewka(plik)
 	{
-   nazwa = "cewka_zbocze_opadajace";
+   nazwa = L"cewka_zbocze_opadajace";
    stan_poprzedni = 0;
    }
 
@@ -215,12 +215,12 @@ void cewka_zbocze_opadajace::narysuj(HDC kontekst, int tryb, int x, int y)
 
 cewka_S::cewka_S(void)
 	{
-   nazwa = "cewka_S";
+   nazwa = L"cewka_S";
    }
 
 cewka_S::cewka_S(FILE * plik): cewka(plik)
 	{
-   nazwa = "cewka_S";
+   nazwa = L"cewka_S";
    }
 
 element * cewka_S::sklonuj(FILE * plik)
@@ -257,7 +257,7 @@ void cewka_S::narysuj(HDC kontekst, int tryb, int x, int y)
    if (tryb&RYSUJ_NAZWE)
    	{
       SetTextAlign(kontekst, TA_TOP|TA_CENTER|TA_NOUPDATECP);
-      TextOut(kontekst, x_pocz+30, y_pocz+Y_WYJSCIA-7, "S", 1);
+      TextOut(kontekst, x_pocz+30, y_pocz+Y_WYJSCIA-7, L"S", 1);
       }
    if (tryb&RYSUJ_ADRES)
       adres_bazowy->narysuj_adres(kontekst, x_pocz+30, y_pocz, TA_CENTER|TA_TOP|TA_NOUPDATECP);
@@ -265,12 +265,12 @@ void cewka_S::narysuj(HDC kontekst, int tryb, int x, int y)
 
 cewka_R::cewka_R(void)
 	{
-   nazwa = "cewka_R";
+   nazwa = L"cewka_R";
    }
 
 cewka_R::cewka_R(FILE * plik): cewka(plik)
 	{
-   nazwa = "cewka_R";
+   nazwa = L"cewka_R";
    }
 
 element * cewka_R::sklonuj(FILE * plik)
@@ -307,7 +307,7 @@ void cewka_R::narysuj(HDC kontekst, int tryb, int x, int y)
    if (tryb&RYSUJ_NAZWE)
    	{
       SetTextAlign(kontekst, TA_TOP|TA_CENTER|TA_NOUPDATECP);
-      TextOut(kontekst, x_pocz+30, y_pocz+Y_WYJSCIA-7, "R", 1);
+      TextOut(kontekst, x_pocz+30, y_pocz+Y_WYJSCIA-7, L"R", 1);
       }
    if (tryb&RYSUJ_ADRES)
       adres_bazowy->narysuj_adres(kontekst, x_pocz+30, y_pocz, TA_CENTER|TA_TOP|TA_NOUPDATECP);

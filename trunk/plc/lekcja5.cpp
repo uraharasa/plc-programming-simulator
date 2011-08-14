@@ -34,43 +34,43 @@ BOOL lekcja5::click(int x, int y)
    return FALSE;
    }
 
-lekcja5::lekcja5() : winda("lekcja5\\winda"),
-							drzwi("lekcja5\\drzwi"),
-							pietro("lekcja5\\pietro"),
-							parter("lekcja5\\parter"),
-							pietro_1("lekcja5\\pietro_1"),
-							pietro_2("lekcja5\\pietro_2"),
-							pietro_3("lekcja5\\pietro_3"),
-							pietro_4("lekcja5\\pietro_4"),
-							button_p("lekcja5\\button_p"),
-							button_1("lekcja5\\button_1"),
-							button_2("lekcja5\\button_2"),
-							button_3("lekcja5\\button_3"),
-							button_4("lekcja5\\button_4")
+lekcja5::lekcja5() : winda(L"lekcja5\\winda"),
+							drzwi(L"lekcja5\\drzwi"),
+							pietro(L"lekcja5\\pietro"),
+							parter(L"lekcja5\\parter"),
+							pietro_1(L"lekcja5\\pietro_1"),
+							pietro_2(L"lekcja5\\pietro_2"),
+							pietro_3(L"lekcja5\\pietro_3"),
+							pietro_4(L"lekcja5\\pietro_4"),
+							button_p(L"lekcja5\\button_p"),
+							button_1(L"lekcja5\\button_1"),
+							button_2(L"lekcja5\\button_2"),
+							button_3(L"lekcja5\\button_3"),
+							button_4(L"lekcja5\\button_4")
 	{
-   nazwa = "lekcja5";
+   nazwa = L"lekcja5";
    pamiec::nowe_parametry_sterownika(5, 12, 200, 200, 1, 0);
    wejscia_I = new pamiec(typ_I, 0, 5);
    wejscia_AI = new pamiec(typ_AI, 0, 1);
    wyjscia_Q = new pamiec(typ_Q, 0, 12);
-   pamiec::dodaj_opis(typ_I, 0, "PRZYC_P");
-   pamiec::dodaj_opis(typ_I, 1, "PRZYC_1");
-   pamiec::dodaj_opis(typ_I, 2, "PRZYC_2");
-   pamiec::dodaj_opis(typ_I, 3, "PRZYC_3");
-   pamiec::dodaj_opis(typ_I, 4, "PRZYC_4");
-   pamiec::dodaj_opis(typ_AI, 0, "CZUJ_WYS");
-   pamiec::dodaj_opis(typ_Q, 0, "SWIAT£O_P");
-   pamiec::dodaj_opis(typ_Q, 1, "SWIAT£O_1");
-   pamiec::dodaj_opis(typ_Q, 2, "SWIAT£O_2");
-   pamiec::dodaj_opis(typ_Q, 3, "SWIAT£O_3");
-   pamiec::dodaj_opis(typ_Q, 4, "SWIAT£O_4");
-   pamiec::dodaj_opis(typ_Q, 5, "DRZWI_P");
-   pamiec::dodaj_opis(typ_Q, 6, "DRZWI_1");
-   pamiec::dodaj_opis(typ_Q, 7, "DRZWI_2");
-   pamiec::dodaj_opis(typ_Q, 8, "DRZWI_3");
-   pamiec::dodaj_opis(typ_Q, 9, "DRZWI_4");
-   pamiec::dodaj_opis(typ_Q, 10, "WIND_RUCH");
-   pamiec::dodaj_opis(typ_Q, 11, "WIND_KIER");
+   pamiec::dodaj_opis(typ_I, 0, L"PRZYC_P");
+   pamiec::dodaj_opis(typ_I, 1, L"PRZYC_1");
+   pamiec::dodaj_opis(typ_I, 2, L"PRZYC_2");
+   pamiec::dodaj_opis(typ_I, 3, L"PRZYC_3");
+   pamiec::dodaj_opis(typ_I, 4, L"PRZYC_4");
+   pamiec::dodaj_opis(typ_AI, 0, L"CZUJ_WYS");
+   pamiec::dodaj_opis(typ_Q, 0, L"SWIAT£O_P");
+   pamiec::dodaj_opis(typ_Q, 1, L"SWIAT£O_1");
+   pamiec::dodaj_opis(typ_Q, 2, L"SWIAT£O_2");
+   pamiec::dodaj_opis(typ_Q, 3, L"SWIAT£O_3");
+   pamiec::dodaj_opis(typ_Q, 4, L"SWIAT£O_4");
+   pamiec::dodaj_opis(typ_Q, 5, L"DRZWI_P");
+   pamiec::dodaj_opis(typ_Q, 6, L"DRZWI_1");
+   pamiec::dodaj_opis(typ_Q, 7, L"DRZWI_2");
+   pamiec::dodaj_opis(typ_Q, 8, L"DRZWI_3");
+   pamiec::dodaj_opis(typ_Q, 9, L"DRZWI_4");
+   pamiec::dodaj_opis(typ_Q, 10, L"WIND_RUCH");
+   pamiec::dodaj_opis(typ_Q, 11, L"WIND_KIER");
    zresetuj();
    }
 

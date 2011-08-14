@@ -3,6 +3,8 @@
 
 #include <windows.h>
 #include "pamiec.h"
+#include <string>
+using namespace std;
 
 class lekcja
 	{
@@ -14,11 +16,11 @@ class lekcja
       pamiec * wyjscia_Q;
    	pamiec * wejscia_AI;
       pamiec * wyjscia_AQ;
-      char * nazwa;
+      wstring nazwa;
    public:
    	lekcja();
       virtual ~lekcja();
-      char * podaj_nazwe();
+      wstring podaj_nazwe();
       void ustal_rozmiar_okna(void);
       virtual BOOL click(int x, int y) =0;
    	virtual void dzialaj(void);

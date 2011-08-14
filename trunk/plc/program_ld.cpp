@@ -888,8 +888,8 @@ void program_LD::wydrukuj()
 	dialog.lCustData = 0L;
 	dialog.lpfnPrintHook = (LPPRINTHOOKPROC) NULL;
 	dialog.lpfnSetupHook = (LPSETUPHOOKPROC) NULL;
-	dialog.lpPrintTemplateName = (LPSTR) NULL;
-	dialog.lpSetupTemplateName = (LPSTR)  NULL;
+	dialog.lpPrintTemplateName = (LPWSTR) NULL;
+	dialog.lpSetupTemplateName = (LPWSTR)  NULL;
 	dialog.hPrintTemplate = (HANDLE) NULL;
 	dialog.hSetupTemplate = (HANDLE) NULL;
    if (!PrintDlg(&dialog))
@@ -897,7 +897,7 @@ void program_LD::wydrukuj()
    HDC kontekst = dialog.hDC;
    DOCINFO dok;
    dok.cbSize = sizeof(DOCINFO);
-   dok.lpszDocName = "Program LD";
+   dok.lpszDocName = L"Program LD";
    dok.lpszOutput = NULL;
    dok.lpszDatatype = NULL;
    dok.fwType = 0;

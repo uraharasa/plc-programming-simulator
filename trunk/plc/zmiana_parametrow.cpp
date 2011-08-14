@@ -83,10 +83,10 @@ BOOL CALLBACK ProceduraDialogu(HWND okno, UINT komunikat, WPARAM wParam, LPARAM 
          	{
 				*(adresy+i) = adres_bazowy;
             SIZE rozmiar;
-            GetTextExtentPoint32(kontekst, "Adres bazowy", 12, &rozmiar);
+            GetTextExtentPoint32(kontekst, L"Adres bazowy", 12, &rozmiar);
             if (rozmiar.cx+szerokosc_przycisku+30>szerokosc_dialogu)
             	szerokosc_dialogu = rozmiar.cx+szerokosc_przycisku+30;
-            HWND etykieta = CreateWindow("STATIC", "Adres bazowy", WS_CHILD|WS_VISIBLE, 10, wysokosc_dialogu+(wysokosc_przycisku-rozmiar.cy)/2, rozmiar.cx, rozmiar.cy, okno, NULL, instancja, NULL);
+            HWND etykieta = CreateWindow(L"STATIC", L"Adres bazowy", WS_CHILD|WS_VISIBLE, 10, wysokosc_dialogu+(wysokosc_przycisku-rozmiar.cy)/2, rozmiar.cx, rozmiar.cy, okno, NULL, instancja, NULL);
 			SendMessage(etykieta, WM_SETFONT, (WPARAM)czcionka_dialogu, FALSE);
 				wysokosc_dialogu += wysokosc_przycisku+10;
             i++;
@@ -98,19 +98,15 @@ BOOL CALLBACK ProceduraDialogu(HWND okno, UINT komunikat, WPARAM wParam, LPARAM 
             	{
                *(adresy+i) = *(wejscia+o);
                SIZE rozmiar;
-               char * napis = "Wejœcie ";
-               char * napis2 = (*(adresy+i))->podpisz_nazwa();
-					char * pelen = new char[strlen(napis)+strlen(napis2)+1];
-               strcpy(pelen, napis);
-               strcat(pelen, napis2);
-               delete napis2;
-               GetTextExtentPoint32(kontekst, pelen, strlen(pelen), &rozmiar);
+               wstring napis = L"Wejœcie ";
+               wstring napis2 = (*(adresy+i))->podpisz_nazwa();
+					wstring pelen = napis + napis2;
+					GetTextExtentPoint32(kontekst, pelen.c_str(), pelen.length(), &rozmiar);
 	            if (rozmiar.cx+szerokosc_przycisku+30>szerokosc_dialogu)
 	            	szerokosc_dialogu = rozmiar.cx+szerokosc_przycisku+30;
-	            HWND etykieta = CreateWindow("STATIC", pelen, WS_CHILD|WS_VISIBLE, 10, wysokosc_dialogu+(wysokosc_przycisku-rozmiar.cy)/2, rozmiar.cx, rozmiar.cy, okno, NULL, instancja, NULL);
+				HWND etykieta = CreateWindow(L"STATIC", pelen.c_str(), WS_CHILD|WS_VISIBLE, 10, wysokosc_dialogu+(wysokosc_przycisku-rozmiar.cy)/2, rozmiar.cx, rozmiar.cy, okno, NULL, instancja, NULL);
 				SendMessage(etykieta, WM_SETFONT, (WPARAM)czcionka_dialogu, FALSE);
 					wysokosc_dialogu += wysokosc_przycisku+10;
-               delete pelen;
                o++;
 					i++;
                } while (o<il_wejsc);
@@ -122,19 +118,15 @@ BOOL CALLBACK ProceduraDialogu(HWND okno, UINT komunikat, WPARAM wParam, LPARAM 
             	{
                *(adresy+i) = *(wyjscia+o);
                SIZE rozmiar;
-               char * napis = "Wyjœcie ";
-               char * napis2 = (*(adresy+i))->podpisz_nazwa();
-					char * pelen = new char[strlen(napis)+strlen(napis2)+1];
-               strcpy(pelen, napis);
-               strcat(pelen, napis2);
-               delete napis2;
-               GetTextExtentPoint32(kontekst, pelen, strlen(pelen), &rozmiar);
+               wstring napis = L"Wyjœcie ";
+               wstring napis2 = (*(adresy+i))->podpisz_nazwa();
+					wstring pelen = napis + napis2;
+					GetTextExtentPoint32(kontekst, pelen.c_str(), pelen.length(), &rozmiar);
 	            if (rozmiar.cx+szerokosc_przycisku+30>szerokosc_dialogu)
 	            	szerokosc_dialogu = rozmiar.cx+szerokosc_przycisku+30;
-	            HWND etykieta = CreateWindow("STATIC", pelen, WS_CHILD|WS_VISIBLE, 10, wysokosc_dialogu+(wysokosc_przycisku-rozmiar.cy)/2, rozmiar.cx, rozmiar.cy, okno, NULL, instancja, NULL);
+				HWND etykieta = CreateWindow(L"STATIC", pelen.c_str(), WS_CHILD|WS_VISIBLE, 10, wysokosc_dialogu+(wysokosc_przycisku-rozmiar.cy)/2, rozmiar.cx, rozmiar.cy, okno, NULL, instancja, NULL);
 				SendMessage(etykieta, WM_SETFONT, (WPARAM)czcionka_dialogu, FALSE);
 					wysokosc_dialogu += wysokosc_przycisku+10;
-               delete pelen;
                o++;
 					i++;
                } while (o<il_wyjsc);
@@ -142,7 +134,7 @@ BOOL CALLBACK ProceduraDialogu(HWND okno, UINT komunikat, WPARAM wParam, LPARAM 
          ReleaseDC(okno, kontekst);
          for (int i=0; i<ilosc_przyciskow; i++)
 		 {
-            HWND przycisk = CreateWindow("BUTTON", "Zmieñ", BS_PUSHBUTTON|WS_CHILD|WS_VISIBLE, szerokosc_dialogu-szerokosc_przycisku-10, akt_wys+(wysokosc_przycisku+10)*i, szerokosc_przycisku, wysokosc_przycisku, okno, (HMENU)(0x100+i), instancja, NULL);
+            HWND przycisk = CreateWindow(L"BUTTON", L"Zmieñ", BS_PUSHBUTTON|WS_CHILD|WS_VISIBLE, szerokosc_dialogu-szerokosc_przycisku-10, akt_wys+(wysokosc_przycisku+10)*i, szerokosc_przycisku, wysokosc_przycisku, okno, (HMENU)(0x100+i), instancja, NULL);
 			SendMessage(przycisk, WM_SETFONT, (WPARAM)czcionka_dialogu, FALSE);
 		 }
 

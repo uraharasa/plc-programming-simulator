@@ -3,11 +3,9 @@
 
 using namespace std;
 
-bitmapa::bitmapa(char * nazwa_pliku)
+bitmapa::bitmapa(wstring nazwa_pliku)
 	{
-   char nazwa[256];
-   strcpy(nazwa, nazwa_pliku);
-   strcat(nazwa, ".bmp");
+   wstring nazwa = nazwa_pliku + L".bmp";
    mapa = NULL;
    maska = NULL;
    szer_mapy = 0;
@@ -26,8 +24,7 @@ bitmapa::bitmapa(char * nazwa_pliku)
    mapa = CreateDIBitmap(kontekst, bmih, CBM_INIT, dane, (LPBITMAPINFO)bmih, DIB_RGB_COLORS);
    ReleaseDC(NULL, kontekst);
    delete [] mapa_DIB;
-   strcpy(nazwa, nazwa_pliku);
-   strcat(nazwa, "_m.bmp");
+   nazwa = nazwa_pliku + L"_m.bmp";
    ifstream plik2(nazwa, ios::in | ios::binary);
    if (!plik2)
    	return;

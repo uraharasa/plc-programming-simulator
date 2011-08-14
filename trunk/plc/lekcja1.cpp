@@ -153,39 +153,39 @@ void lekcja1::narysuj(HDC kontekst)
    poten_galka.wyswietl(kontekst, 214, wys_panelu+8+45-poten2);
    }
 
-lekcja1::lekcja1() : wiatrak1("lekcja1\\wiatrak1"),
-							wiatrak2("lekcja1\\wiatrak2"),
-							wiatrak3("lekcja1\\wiatrak3"),
-							wiatrak4("lekcja1\\wiatrak4"),
-							czerwona_zgasz("lekcja1\\czerw_zgasz"),
-							czerwona_zapal("lekcja1\\czerw_zapal"),
-							zolta_zgasz("lekcja1\\zolta_zgasz"),
-							zolta_zapal("lekcja1\\zolta_zapal"),
-							pushbutton("lekcja1\\pushbutton"),
-							switch_on("lekcja1\\switch_on"),
-							switch_off("lekcja1\\switch_off"),
-							poten_podst("lekcja1\\poten_podst"),
-							poten_galka("lekcja1\\poten_galka"),
-                     tlo("lekcja1\\tlo")
+lekcja1::lekcja1() : wiatrak1(L"lekcja1\\wiatrak1"),
+							wiatrak2(L"lekcja1\\wiatrak2"),
+							wiatrak3(L"lekcja1\\wiatrak3"),
+							wiatrak4(L"lekcja1\\wiatrak4"),
+							czerwona_zgasz(L"lekcja1\\czerw_zgasz"),
+							czerwona_zapal(L"lekcja1\\czerw_zapal"),
+							zolta_zgasz(L"lekcja1\\zolta_zgasz"),
+							zolta_zapal(L"lekcja1\\zolta_zapal"),
+							pushbutton(L"lekcja1\\pushbutton"),
+							switch_on(L"lekcja1\\switch_on"),
+							switch_off(L"lekcja1\\switch_off"),
+							poten_podst(L"lekcja1\\poten_podst"),
+							poten_galka(L"lekcja1\\poten_galka"),
+                     tlo(L"lekcja1\\tlo")
 	{
-   nazwa = "lekcja1";
+   nazwa = L"lekcja1";
    pamiec::nowe_parametry_sterownika(5,4,100,100,2,1);
    wejscia_I = new pamiec(typ_I, 0, 5);
    wyjscia_Q = new pamiec(typ_Q, 0, 4);
    wejscia_AI = new pamiec(typ_AI, 0, 2);
    wyjscia_AQ = new pamiec(typ_AQ, 0, 1);
-   pamiec::dodaj_opis(typ_Q, 0, "¯Ó£TA_1");
-   pamiec::dodaj_opis(typ_Q, 1, "CZERW_1");
-   pamiec::dodaj_opis(typ_Q, 2, "¯Ó£TA_2");
-   pamiec::dodaj_opis(typ_Q, 3, "CZERW_2");
-   pamiec::dodaj_opis(typ_I, 0, "BISTAB_1");
-   pamiec::dodaj_opis(typ_I, 1, "BISTAB_2");
-   pamiec::dodaj_opis(typ_I, 2, "ASTAB_1");
-   pamiec::dodaj_opis(typ_I, 3, "ASTAB_2");
-   pamiec::dodaj_opis(typ_I, 4, "CZUJNIK");
-   pamiec::dodaj_opis(typ_AI, 0, "POTEN_1");
-   pamiec::dodaj_opis(typ_AI, 1, "POTEN_2");
-   pamiec::dodaj_opis(typ_AQ, 0, "WIATRAK");
+   pamiec::dodaj_opis(typ_Q, 0, L"¯Ó£TA_1");
+   pamiec::dodaj_opis(typ_Q, 1, L"CZERW_1");
+   pamiec::dodaj_opis(typ_Q, 2, L"¯Ó£TA_2");
+   pamiec::dodaj_opis(typ_Q, 3, L"CZERW_2");
+   pamiec::dodaj_opis(typ_I, 0, L"BISTAB_1");
+   pamiec::dodaj_opis(typ_I, 1, L"BISTAB_2");
+   pamiec::dodaj_opis(typ_I, 2, L"ASTAB_1");
+   pamiec::dodaj_opis(typ_I, 3, L"ASTAB_2");
+   pamiec::dodaj_opis(typ_I, 4, L"CZUJNIK");
+   pamiec::dodaj_opis(typ_AI, 0, L"POTEN_1");
+   pamiec::dodaj_opis(typ_AI, 1, L"POTEN_2");
+   pamiec::dodaj_opis(typ_AQ, 0, L"WIATRAK");
    zresetuj();
    }
 

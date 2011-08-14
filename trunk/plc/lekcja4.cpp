@@ -30,37 +30,37 @@ BOOL lekcja4::click(int x, int y)
    return FALSE;
    }
 
-lekcja4::lekcja4() : tlo("lekcja4\\tlo"),
-							lampka_czerwona("lekcja4\\lampka_czerwona"),
-							lampka_zielona("lekcja4\\lampka_zielona"),
-                     ubrania1("lekcja4\\ubrania1"),
-                     ubrania2("lekcja4\\ubrania2"),
-                     ubrania3("lekcja4\\ubrania3"),
-                     ubrania4("lekcja4\\ubrania4"),
-                     ubrania5("lekcja4\\ubrania5"),
-                     ubrania6("lekcja4\\ubrania6"),
-                     ubrania7("lekcja4\\ubrania7"),
-                     ubrania8("lekcja4\\ubrania8"),
-                     ubrania9("lekcja4\\ubrania9"),
-                     ubrania10("lekcja4\\ubrania10"),
-                     ubrania11("lekcja4\\ubrania11"),
-                     ubrania12("lekcja4\\ubrania12"),
-                     woda("lekcja4\\woda")
+lekcja4::lekcja4() : tlo(L"lekcja4\\tlo"),
+							lampka_czerwona(L"lekcja4\\lampka_czerwona"),
+							lampka_zielona(L"lekcja4\\lampka_zielona"),
+                     ubrania1(L"lekcja4\\ubrania1"),
+                     ubrania2(L"lekcja4\\ubrania2"),
+                     ubrania3(L"lekcja4\\ubrania3"),
+                     ubrania4(L"lekcja4\\ubrania4"),
+                     ubrania5(L"lekcja4\\ubrania5"),
+                     ubrania6(L"lekcja4\\ubrania6"),
+                     ubrania7(L"lekcja4\\ubrania7"),
+                     ubrania8(L"lekcja4\\ubrania8"),
+                     ubrania9(L"lekcja4\\ubrania9"),
+                     ubrania10(L"lekcja4\\ubrania10"),
+                     ubrania11(L"lekcja4\\ubrania11"),
+                     ubrania12(L"lekcja4\\ubrania12"),
+                     woda(L"lekcja4\\woda")
 	{
-   nazwa = "lekcja4";
+   nazwa = L"lekcja4";
    pamiec::nowe_parametry_sterownika(1, 5, 100, 100, 3, 0);
    wejscia_I = new pamiec(typ_I, 0, 1);
    wejscia_AI = new pamiec(typ_AI, 0, 3);
    wyjscia_Q = new pamiec(typ_Q, 0, 5);
-   pamiec::dodaj_opis(typ_I, 0, "PRANIE");
-   pamiec::dodaj_opis(typ_AI, 0, "POZIOM");
-   pamiec::dodaj_opis(typ_AI, 1, "CZUJ_TEMP");
-   pamiec::dodaj_opis(typ_AI, 2, "NAST_TEMP");
-   pamiec::dodaj_opis(typ_Q, 0, "BÊBEN");
-   pamiec::dodaj_opis(typ_Q, 1, "KIER_BÊB");
-   pamiec::dodaj_opis(typ_Q, 2, "GRZA£KA");
-   pamiec::dodaj_opis(typ_Q, 3, "DOP£YW");
-   pamiec::dodaj_opis(typ_Q, 4, "ODP£YW");
+   pamiec::dodaj_opis(typ_I, 0, L"PRANIE");
+   pamiec::dodaj_opis(typ_AI, 0, L"POZIOM");
+   pamiec::dodaj_opis(typ_AI, 1, L"CZUJ_TEMP");
+   pamiec::dodaj_opis(typ_AI, 2, L"NAST_TEMP");
+   pamiec::dodaj_opis(typ_Q, 0, L"BÊBEN");
+   pamiec::dodaj_opis(typ_Q, 1, L"KIER_BÊB");
+   pamiec::dodaj_opis(typ_Q, 2, L"GRZA£KA");
+   pamiec::dodaj_opis(typ_Q, 3, L"DOP£YW");
+   pamiec::dodaj_opis(typ_Q, 4, L"ODP£YW");
    zresetuj();
    }
 
@@ -212,12 +212,12 @@ void lekcja4::narysuj(HDC kontekst)
       lf.lfHeight = 29;
       lf.lfWeight = FW_NORMAL;
       lf.lfCharSet = DEFAULT_CHARSET;
-      strcpy(lf.lfFaceName, "Arial CE");
+      wcscpy(lf.lfFaceName, L"Arial CE");
       lf.lfEscapement = lf.lfOrientation = 450;
       HFONT stara = (HFONT)SelectObject(kontekst, CreateFontIndirect(&lf));
       SetBkMode(kontekst, TRANSPARENT);
       SetTextColor(kontekst, 0xff);
-      TextOut(kontekst, 20, 180, "Spali³eœ grza³kê !!!", strlen("Spali³eœ grza³kê !!!"));
+      TextOut(kontekst, 20, 180, L"Spali³eœ grza³kê !!!", wcslen(L"Spali³eœ grza³kê !!!"));
       DeleteObject(SelectObject(kontekst, stara));
       }
    }

@@ -2,19 +2,18 @@
 
 licznik_UPCTR::licznik_UPCTR()
 	{
-   nazwa = "licznik_UPCTR";
-   nazwa_bloku = new char[strlen("UPCTR")+1];
-   strcpy(nazwa_bloku, "UPCTR");
-   adres_bazowy = new pamiec("", MOZNA_R, 3);
+   nazwa = L"licznik_UPCTR";
+   nazwa_bloku = L"UPCTR";
+   adres_bazowy = new pamiec(L"", MOZNA_R, 3);
    il_wejsc = 2;
    wejscia = new pamiec *[2];
-   *wejscia = new pamiec("R", MOZNA_I|MOZNA_R|MOZNA_M);
-   *(wejscia+1) = new pamiec("PV", MOZNA_R|MOZNA_M|MOZNA_AI|MOZNA_CONST);
+   *wejscia = new pamiec(L"R", MOZNA_I|MOZNA_R|MOZNA_M);
+   *(wejscia+1) = new pamiec(L"PV", MOZNA_R|MOZNA_M|MOZNA_AI|MOZNA_CONST);
    }
 
 licznik_UPCTR::licznik_UPCTR(FILE * plik): blok_funkcyjny(plik)
 	{
-   nazwa = "licznik_UPCTR";
+   nazwa = L"licznik_UPCTR";
    }
 
 int licznik_UPCTR::dzialaj(int wejscie)
@@ -44,19 +43,18 @@ element * licznik_UPCTR::sklonuj(FILE * plik)
 
 licznik_DNCTR::licznik_DNCTR()
 	{
-   nazwa = "licznik_DNCTR";
-   nazwa_bloku = new char[strlen("DNCTR")+1];
-   strcpy(nazwa_bloku, "DNCTR");
-   adres_bazowy = new pamiec("", MOZNA_R, 3);
+   nazwa = L"licznik_DNCTR";
+   nazwa_bloku = L"DNCTR";
+   adres_bazowy = new pamiec(L"", MOZNA_R, 3);
    il_wejsc = 2;
    wejscia = new pamiec *[2];
-   *wejscia = new pamiec("R", MOZNA_I|MOZNA_R|MOZNA_M);
-   *(wejscia+1) = new pamiec("PV", MOZNA_R|MOZNA_M|MOZNA_AI|MOZNA_CONST);
+   *wejscia = new pamiec(L"R", MOZNA_I|MOZNA_R|MOZNA_M);
+   *(wejscia+1) = new pamiec(L"PV", MOZNA_R|MOZNA_M|MOZNA_AI|MOZNA_CONST);
    }
 
 licznik_DNCTR::licznik_DNCTR(FILE * plik): blok_funkcyjny(plik)
 	{
-   nazwa = "licznik_DNCTR";
+   nazwa = L"licznik_DNCTR";
    }
 
 int licznik_DNCTR::dzialaj(int wejscie)

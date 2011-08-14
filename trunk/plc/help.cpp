@@ -1,20 +1,18 @@
 #include <windows.h>
-
+#include <string>
+using namespace std;
 class help
 	{
    public:
-		void wyswietl(char * topic);
+		void wyswietl(wstring topic);
    };
 
 help pomoc;
 
-void help::wyswietl(char * topic)
+void help::wyswietl(wstring topic)
 	{
-   char * sciezka = "help\\";
-   char * tymcz = new char[strlen(sciezka)+strlen(topic)+strlen(".html")+1];
-   strcpy(tymcz, sciezka);
-   strcat(tymcz, topic);
-   strcat(tymcz, ".html");
-	ShellExecute(NULL, "open", tymcz, NULL, NULL, 0);
-   delete [] tymcz;
+   wstring sciezka = L"help\\";
+   sciezka += topic;
+   sciezka += L".html";
+   ShellExecute(NULL, L"open", sciezka.c_str(), NULL, NULL, 0);
    }

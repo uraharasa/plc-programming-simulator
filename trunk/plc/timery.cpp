@@ -2,19 +2,18 @@
 
 timer_ONDTR::timer_ONDTR()
 	{
-   nazwa = "timer_ONDTR";
-   nazwa_bloku = new char[strlen("ONDTR")+1];
-   strcpy(nazwa_bloku, "ONDTR");
-   adres_bazowy = new pamiec("", MOZNA_R, 3);
+   nazwa = L"timer_ONDTR";
+   nazwa_bloku = L"ONDTR";
+   adres_bazowy = new pamiec(L"", MOZNA_R, 3);
    il_wejsc = 2;
    wejscia = new pamiec *[2];
-   *wejscia = new pamiec("R", MOZNA_I|MOZNA_R|MOZNA_M);
-   *(wejscia+1) = new pamiec("PV", MOZNA_R|MOZNA_M|MOZNA_AI|MOZNA_CONST);
+   *wejscia = new pamiec(L"R", MOZNA_I|MOZNA_R|MOZNA_M);
+   *(wejscia+1) = new pamiec(L"PV", MOZNA_R|MOZNA_M|MOZNA_AI|MOZNA_CONST);
    }
 
 timer_ONDTR::timer_ONDTR(FILE * plik): blok_funkcyjny(plik)
 	{
-   nazwa = "timer_ONDTR";
+   nazwa = L"timer_ONDTR";
    }
 
 int timer_ONDTR::dzialaj(int wejscie)
@@ -42,18 +41,17 @@ element * timer_ONDTR::sklonuj(FILE * plik)
 
 timer_OFDT::timer_OFDT()
 	{
-   nazwa = "timer_OFDT";
-   nazwa_bloku = new char[strlen("OFDT")+1];
-   strcpy(nazwa_bloku, "OFDT");
-   adres_bazowy = new pamiec("", MOZNA_R, 3);
+   nazwa = L"timer_OFDT";
+   nazwa_bloku = L"OFDT";
+   adres_bazowy = new pamiec(L"", MOZNA_R, 3);
    il_wejsc = 1;
    wejscia = new pamiec *;
-   *wejscia = new pamiec("PV", MOZNA_R|MOZNA_M|MOZNA_AI|MOZNA_CONST);
+   *wejscia = new pamiec(L"PV", MOZNA_R|MOZNA_M|MOZNA_AI|MOZNA_CONST);
    }
 
 timer_OFDT::timer_OFDT(FILE * plik): blok_funkcyjny(plik)
 	{
-   nazwa = "timer_OFDT";
+   nazwa = L"timer_OFDT";
    }
 
 int timer_OFDT::dzialaj(int wejscie)
@@ -85,18 +83,17 @@ element * timer_OFDT::sklonuj(FILE * plik)
 
 timer_TMR::timer_TMR()
 	{
-   nazwa = "timer_TMR";
-   nazwa_bloku = new char[strlen("TMR")+1];
-   strcpy(nazwa_bloku, "TMR");
-   adres_bazowy = new pamiec("", MOZNA_R, 3);
+   nazwa = L"timer_TMR";
+   nazwa_bloku = L"TMR";
+   adres_bazowy = new pamiec(L"", MOZNA_R, 3);
    il_wejsc = 1;
    wejscia = new pamiec *;
-   *wejscia = new pamiec("PV", MOZNA_R|MOZNA_M|MOZNA_AI|MOZNA_CONST);
+   *wejscia = new pamiec(L"PV", MOZNA_R|MOZNA_M|MOZNA_AI|MOZNA_CONST);
    }
 
 timer_TMR::timer_TMR(FILE * plik): blok_funkcyjny(plik)
 	{
-   nazwa = "timer_TMR";
+   nazwa = L"timer_TMR";
    }
 
 int timer_TMR::dzialaj(int wejscie)

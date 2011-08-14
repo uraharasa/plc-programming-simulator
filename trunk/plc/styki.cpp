@@ -3,7 +3,7 @@
 
 styk::styk()
 	{
-   adres_bazowy = new pamiec("", MOZNA_I|MOZNA_M|MOZNA_R|MOZNA_Q);
+   adres_bazowy = new pamiec(L"", MOZNA_I|MOZNA_M|MOZNA_R|MOZNA_Q);
    }
 
 styk::styk(FILE * plik): element_zwykly(plik)
@@ -18,12 +18,12 @@ void styk::podaj_rozmiar(int & szerokosc, int & wysokosc, int tryb)
 
 styk_zwierny::styk_zwierny(void)
 	{
-   nazwa = "styk_zwierny";
+   nazwa = L"styk_zwierny";
    }
 
 styk_zwierny::styk_zwierny(FILE * plik): styk(plik)
 	{
-   nazwa = "styk_zwierny";
+   nazwa = L"styk_zwierny";
    }
 
 int styk_zwierny::dzialaj(int wejscie)
@@ -60,12 +60,12 @@ element * styk_zwierny::sklonuj(FILE * plik)
 
 styk_rozwierny::styk_rozwierny(void)
 	{
-   nazwa = "styk_rozwierny";
+   nazwa = L"styk_rozwierny";
    }
 
 styk_rozwierny::styk_rozwierny(FILE * plik): styk(plik)
 	{
-   nazwa = "styk_rozwierny";
+   nazwa = L"styk_rozwierny";
    }
 
 int styk_rozwierny::dzialaj(int wejscie)

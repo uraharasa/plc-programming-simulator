@@ -2,6 +2,8 @@
 #define narzedzia_h_included
 
 #include "element.h"
+#include <string>
+using namespace std;
 
 #define ILOSC_KATEGORII	6
 #define STYL_OKNA_NARZEDZIOWEGO	(WS_CAPTION|WS_CHILD|WS_CLIPSIBLINGS)
@@ -17,7 +19,7 @@ class jedna_kategoria
 	{
    public:
    	jedno_narzedzie * pierwsze_narzedzie;
-      char * nazwa_kategorii;
+      wstring nazwa_kategorii;
    };
 
 class narzedzia

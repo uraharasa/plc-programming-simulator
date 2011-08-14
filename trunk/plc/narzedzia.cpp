@@ -16,13 +16,13 @@ narzedzia::narzedzia(HWND okno_narzedziowe)
 	{
    akt_kategoria = 0;
    okno = okno_narzedziowe;
-   zbior_narzedzi[0].nazwa_kategorii = "Styki";
-   zbior_narzedzi[1].nazwa_kategorii = "Cewki";
+   zbior_narzedzi[0].nazwa_kategorii = L"Styki";
+   zbior_narzedzi[1].nazwa_kategorii = L"Cewki";
    kategoria_cewek = 1;
-   zbior_narzedzi[2].nazwa_kategorii = "Liczniki";
-   zbior_narzedzi[3].nazwa_kategorii = "Timery";
-   zbior_narzedzi[4].nazwa_kategorii = "Arytmetyka";
-   zbior_narzedzi[5].nazwa_kategorii = "Relacje";
+   zbior_narzedzi[2].nazwa_kategorii = L"Liczniki";
+   zbior_narzedzi[3].nazwa_kategorii = L"Timery";
+   zbior_narzedzi[4].nazwa_kategorii = L"Arytmetyka";
+   zbior_narzedzi[5].nazwa_kategorii = L"Relacje";
    for (int i=0; i<ILOSC_KATEGORII; i++)
       {
       zbior_narzedzi[i].pierwsze_narzedzie = NULL;
@@ -55,7 +55,7 @@ narzedzia::narzedzia(HWND okno_narzedziowe)
 	dodaj_narzedzie(5, new relacja_zakres);
    RECT obszar;
    GetClientRect(okno, &obszar);
-   zakladki = CreateWindow(WC_TABCONTROL, "", WS_CHILD|WS_CLIPSIBLINGS|WS_VISIBLE,
+   zakladki = CreateWindow(WC_TABCONTROL, L"", WS_CHILD|WS_CLIPSIBLINGS|WS_VISIBLE,
 		0, 0, obszar.right, obszar.bottom, okno, NULL, instancja, NULL);
    NONCLIENTMETRICS metrics;
    metrics.cbSize = sizeof(NONCLIENTMETRICS);
@@ -66,7 +66,7 @@ narzedzia::narzedzia(HWND okno_narzedziowe)
    	{
       TC_ITEM zak;
       zak.mask = TCIF_TEXT;
-      zak.pszText = zbior_narzedzi[i].nazwa_kategorii;
+	  zak.pszText = (LPWSTR)zbior_narzedzi[i].nazwa_kategorii.c_str();
       TabCtrl_InsertItem(zakladki, i, &zak);
       }
    int max_szerokosc = 0;
@@ -106,7 +106,7 @@ narzedzia::narzedzia(HWND okno_narzedziowe)
    WNDCLASS klasa_klienta;
    klasa_klienta.style = 0;
    klasa_klienta.hInstance = instancja;
-   klasa_klienta.lpszClassName = "klient";
+   klasa_klienta.lpszClassName = L"klient";
    klasa_klienta.lpfnWndProc = ProcOknaNarzedziKlient;
    klasa_klienta.hIcon = NULL;
    klasa_klienta.hCursor = LoadCursor(NULL, IDC_ARROW);
@@ -115,7 +115,7 @@ narzedzia::narzedzia(HWND okno_narzedziowe)
    klasa_klienta.cbWndExtra = 0;
    klasa_klienta.hbrBackground = (HBRUSH)GetStockObject(WHITE_BRUSH);
    RegisterClass(&klasa_klienta);
-   klient = CreateWindow("klient", "", WS_CHILD|WS_CLIPSIBLINGS|WS_VISIBLE,
+   klient = CreateWindow(L"klient", L"", WS_CHILD|WS_CLIPSIBLINGS|WS_VISIBLE,
    	obszar.left, obszar.top, obszar.right-obszar.left, obszar.bottom-obszar.top,
       okno, 0, instancja, NULL);
 	BringWindowToTop(klient);
@@ -262,23 +262,24 @@ void narzedzia::dodaj_narzedzie(int kategoria, element_zwykly * nowe_narzedzie)
 
 element * narzedzia::rozpoznaj_i_wczytaj(FILE * plik)
 	{
-   char bufor[256];
+   wchar_t bufor[256];
    int i = 0;
    do
    	{
-      bufor[i] = fgetc(plik);
+		wchar_t letter = fgetc(plik) | (fgetc(plik) << 8);
+      bufor[i] = letter;
       i++;
       } while (bufor[i-1]);
-	if (strcmp(bufor, "polaczenie_szeregowe") == 0)
+	if (wcscmp(bufor, L"polaczenie_szeregowe") == 0)
    	return new polaczenie_szeregowe(plik);
-	if (strcmp(bufor, "polaczenie_rownolegle") == 0)
+	if (wcscmp(bufor, L"polaczenie_rownolegle") == 0)
    	return new polaczenie_rownolegle(plik);
    for (int i=0; i<ILOSC_KATEGORII; i++)
    	{
 		jedno_narzedzie * akt = zbior_narzedzi[i].pierwsze_narzedzie;
       while (akt)
       	{
-         if (strcmp((akt->narzedzie)->podaj_nazwe(), bufor) == 0)
+         if (wcscmp((akt->narzedzie)->podaj_nazwe().c_str(), bufor) == 0)
          	return (akt->narzedzie)->sklonuj(plik);
          akt = akt->nastepne;
          }
