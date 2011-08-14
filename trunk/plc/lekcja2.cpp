@@ -153,7 +153,7 @@ void lekcja2::narysuj(HDC kontekst)
 		lf.lfHeight = 29;
 		lf.lfWeight = FW_NORMAL;
 		lf.lfCharSet = DEFAULT_CHARSET;
-		wcscpy(lf.lfFaceName, L"Arial CE");
+		wcscpy(lf.lfFaceName, L"Arial");
 		lf.lfEscapement = lf.lfOrientation = 450;
 		HFONT stara = (HFONT)SelectObject(kontekst, CreateFontIndirect(&lf));
 		SetBkMode(kontekst, TRANSPARENT);

@@ -86,7 +86,7 @@ void lekcja4::dzialaj()
 		}
 		else
 			wejscia_I->zapisz_pamiec(0, 0);
-		kat_obrotu += (float)predkosc_obrotowa / 10.0;
+		kat_obrotu += (float)predkosc_obrotowa / 10.0f;
 		while (kat_obrotu >= 360)
 			kat_obrotu -= 360;
 		while (kat_obrotu < 0)
@@ -108,7 +108,7 @@ void lekcja4::dzialaj()
 			predkosc_obrotowa = -100;
 		if (wyjscia_Q->odczytaj_pamiec(3))
 		{
-			temperatura_wody = (temperatura_wody*(poziom_wody/10)+0.1*temperatura_wody_doplywu)/((poziom_wody/10)+0.1);
+			temperatura_wody = (temperatura_wody*(poziom_wody/10)+0.1f*temperatura_wody_doplywu)/((poziom_wody/10)+0.1f);
 			poziom_wody += 1;
 		}
 		if (wyjscia_Q->odczytaj_pamiec(4))
@@ -122,15 +122,15 @@ void lekcja4::dzialaj()
 				temperatura_wody += moc_grzalki / ((poziom_wody/10) * masa_piksla * cieplo_wlasciwe);
 			else
 				spalona_grzalka = TRUE;
-		wskazanie_temperatury_wody += (temperatura_wody-wskazanie_temperatury_wody)*0.01;
+		wskazanie_temperatury_wody += (temperatura_wody-wskazanie_temperatury_wody)*0.01f;
 		if (wskazanie_temperatury_wody > 90)
 			wskazanie_temperatury_wody = 90;
 		if (wskazanie_temperatury_wody < 10)
 			wskazanie_temperatury_wody = 10;
 		if (temperatura_wody > 100)
 			spalona_grzalka = TRUE;
-		wejscia_AI->zapisz_pamiec(wskazanie_temperatury_wody, 1);
-		wejscia_AI->zapisz_pamiec(poziom_wody, 0);
+		wejscia_AI->zapisz_pamiec((int)wskazanie_temperatury_wody, 1);
+		wejscia_AI->zapisz_pamiec((int)poziom_wody, 0);
 		wejscia_AI->zapisz_pamiec(nastaw_temperatury, 2);
 	}
 	lekcja::dzialaj();
@@ -190,7 +190,7 @@ void lekcja4::narysuj(HDC kontekst)
 		lampka_czerwona.wyswietl(kontekst, 135, 192);
 	else
 		lampka_zielona.wyswietl(kontekst, 135, 192);
-	int poziom = poziom_wody/10;
+	int poziom = (int)poziom_wody/10;
 	woda.wyswietl(kontekst, 55, 116+50-poziom, 50, poziom, 0, 50-poziom);
 	RECT obszar;
 	obszar.left = 51+nastaw_temperatury;
@@ -201,7 +201,7 @@ void lekcja4::narysuj(HDC kontekst)
 	FillRect(kontekst, &obszar, pedzel);
 	obszar.left = 20;
 	obszar.right = 25;
-	obszar.top = 100 + 80 - wskazanie_temperatury_wody + 10;
+	obszar.top = 100 + 80 - (int)wskazanie_temperatury_wody + 10;
 	obszar.bottom = 180;
 	FillRect(kontekst, &obszar, pedzel);
 	DeleteObject(pedzel);
@@ -212,7 +212,7 @@ void lekcja4::narysuj(HDC kontekst)
 		lf.lfHeight = 29;
 		lf.lfWeight = FW_NORMAL;
 		lf.lfCharSet = DEFAULT_CHARSET;
-		wcscpy(lf.lfFaceName, L"Arial CE");
+		wcscpy(lf.lfFaceName, L"Arial");
 		lf.lfEscapement = lf.lfOrientation = 450;
 		HFONT stara = (HFONT)SelectObject(kontekst, CreateFontIndirect(&lf));
 		SetBkMode(kontekst, TRANSPARENT);
