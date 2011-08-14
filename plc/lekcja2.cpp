@@ -31,21 +31,21 @@ BOOL lekcja2::click(int x, int y)
    return FALSE;
    }
 
-lekcja2::lekcja2() : doplyw_zamkniety("lekcja2\\basen"), doplyw_otwarty("lekcja2\\basen_doplyw"), odplyw_otwarty("lekcja2\\basen_z_woda_otwarty"), odplyw_zamkniety("lekcja2\\basen_z_woda_zamkniety"),
-							zawor_zamkniety("lekcja2\\zawor_zamkniety"), zawor_otwarty("lekcja2\\zawor_otwarty"), przycisk_napelnij("lekcja2\\button_napelnij"), przycisk_oproznij("lekcja2\\button_oproznij"),
-                     przycisk_wymiana_on("lekcja2\\button_wymiana_on"), przycisk_wymiana_off("lekcja2\\button_wymiana_off")
+lekcja2::lekcja2() : doplyw_zamkniety(L"lekcja2\\basen"), doplyw_otwarty(L"lekcja2\\basen_doplyw"), odplyw_otwarty(L"lekcja2\\basen_z_woda_otwarty"), odplyw_zamkniety(L"lekcja2\\basen_z_woda_zamkniety"),
+							zawor_zamkniety(L"lekcja2\\zawor_zamkniety"), zawor_otwarty(L"lekcja2\\zawor_otwarty"), przycisk_napelnij(L"lekcja2\\button_napelnij"), przycisk_oproznij(L"lekcja2\\button_oproznij"),
+                     przycisk_wymiana_on(L"lekcja2\\button_wymiana_on"), przycisk_wymiana_off(L"lekcja2\\button_wymiana_off")
 	{
-   nazwa = "lekcja2";
+   nazwa = L"lekcja2";
    pamiec::nowe_parametry_sterownika(5, 2, 100, 100, 0, 0);
    wejscia_I = new pamiec(typ_I, 0, 5);
    wyjscia_Q = new pamiec(typ_Q, 0, 2);
-   pamiec::dodaj_opis(typ_I, 0, "CZUJ_GÓRA");
-   pamiec::dodaj_opis(typ_I, 1, "CZUJ_DÓ£");
-   pamiec::dodaj_opis(typ_I, 2, "NAPE£NIJ");
-   pamiec::dodaj_opis(typ_I, 3, "OPRÓ¯NIJ");
-   pamiec::dodaj_opis(typ_I, 4, "WYMIANA");
-   pamiec::dodaj_opis(typ_Q, 0, "DOP£YW");
-   pamiec::dodaj_opis(typ_Q, 1, "ODP£YW");
+   pamiec::dodaj_opis(typ_I, 0, L"CZUJ_GÓRA");
+   pamiec::dodaj_opis(typ_I, 1, L"CZUJ_DÓ£");
+   pamiec::dodaj_opis(typ_I, 2, L"NAPE£NIJ");
+   pamiec::dodaj_opis(typ_I, 3, L"OPRÓ¯NIJ");
+   pamiec::dodaj_opis(typ_I, 4, L"WYMIANA");
+   pamiec::dodaj_opis(typ_Q, 0, L"DOP£YW");
+   pamiec::dodaj_opis(typ_Q, 1, L"ODP£YW");
    zresetuj();
    }
 
@@ -153,12 +153,12 @@ void lekcja2::narysuj(HDC kontekst)
       lf.lfHeight = 29;
       lf.lfWeight = FW_NORMAL;
       lf.lfCharSet = DEFAULT_CHARSET;
-      strcpy(lf.lfFaceName, "Arial CE");
+      wcscpy(lf.lfFaceName, L"Arial CE");
       lf.lfEscapement = lf.lfOrientation = 450;
       HFONT stara = (HFONT)SelectObject(kontekst, CreateFontIndirect(&lf));
       SetBkMode(kontekst, TRANSPARENT);
       SetTextColor(kontekst, 0xff);
-      TextOut(kontekst, 0, 140, "Rozla³eœ wodê !!!", strlen("Rozla³eœ wodê !!!"));
+      TextOut(kontekst, 0, 140, L"Rozla³eœ wodê !!!", wcslen(L"Rozla³eœ wodê !!!"));
       DeleteObject(SelectObject(kontekst, stara));
       }
    }

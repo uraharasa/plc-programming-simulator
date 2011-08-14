@@ -42,7 +42,7 @@ int WINAPI WinMain(HINSTANCE zad, HINSTANCE, LPSTR, int tryb_okna)
    klasa_okna.cbWndExtra = 0;
    klasa_okna.hCursor = LoadCursor(NULL, IDC_ARROW);
    klasa_okna.hInstance = instancja;
-   klasa_okna.lpszClassName = "OknoGlowne";
+   klasa_okna.lpszClassName = L"OknoGlowne";
    klasa_okna.lpfnWndProc = ProcOknaGlownego;
    klasa_okna.lpszMenuName = MAKEINTRESOURCE(IDM_MENU_GLOWNE);
    klasa_okna.hbrBackground = CreateSolidBrush(0x7f0000);
@@ -54,7 +54,7 @@ int WINAPI WinMain(HINSTANCE zad, HINSTANCE, LPSTR, int tryb_okna)
    klasa_okna.cbWndExtra = 0;
    klasa_okna.hCursor = LoadCursor(NULL, MAKEINTRESOURCE(IDC_HAND));
    klasa_okna.hInstance = instancja;
-   klasa_okna.lpszClassName = "OknoLD";
+   klasa_okna.lpszClassName = L"OknoLD";
    klasa_okna.lpfnWndProc = ProcOknaLD;
    klasa_okna.lpszMenuName = NULL;
    klasa_okna.hbrBackground = (HBRUSH)GetStockObject(WHITE_BRUSH);
@@ -66,7 +66,7 @@ int WINAPI WinMain(HINSTANCE zad, HINSTANCE, LPSTR, int tryb_okna)
    klasa_okna.cbWndExtra = 0;
    klasa_okna.hCursor = LoadCursor(NULL, IDC_ARROW);
    klasa_okna.hInstance = instancja;
-   klasa_okna.lpszClassName = "OknoNarzedzi";
+   klasa_okna.lpszClassName = L"OknoNarzedzi";
    klasa_okna.lpfnWndProc = ProcOknaNarzedzi;
    klasa_okna.lpszMenuName = NULL;
    klasa_okna.hbrBackground = (HBRUSH) (COLOR_WINDOW+1);
@@ -78,17 +78,17 @@ int WINAPI WinMain(HINSTANCE zad, HINSTANCE, LPSTR, int tryb_okna)
    klasa_okna.cbWndExtra = 0;
    klasa_okna.hCursor = LoadCursor(NULL, IDC_ARROW);
    klasa_okna.hInstance = instancja;
-   klasa_okna.lpszClassName = "OknoLekcji";
+   klasa_okna.lpszClassName = L"OknoLekcji";
    klasa_okna.lpfnWndProc = ProcOknaLekcji;
    klasa_okna.lpszMenuName = NULL;
    klasa_okna.hbrBackground = (HBRUSH)GetStockObject(NULL_BRUSH);
    klasa_okna.hIcon = NULL;
    RegisterClass(&klasa_okna);
 
-	OknoGlowne = CreateWindow("OknoGlowne", "Program dydaktyczny do nauki programowania sterowników PLC", WS_OVERLAPPEDWINDOW,
+	OknoGlowne = CreateWindow(L"OknoGlowne", L"Program dydaktyczny do nauki programowania sterowników PLC", WS_OVERLAPPEDWINDOW,
    	CW_USEDEFAULT, CW_USEDEFAULT, CW_USEDEFAULT, CW_USEDEFAULT,
       NULL, NULL, instancja, NULL);
-   OknoNarzedzi = CreateWindow("OknoNarzedzi", "Elementy", WS_CAPTION|WS_CHILD|WS_CLIPSIBLINGS,
+   OknoNarzedzi = CreateWindow(L"OknoNarzedzi", L"Elementy", WS_CAPTION|WS_CHILD|WS_CLIPSIBLINGS,
    	0, 0, 50, 50,
       OknoGlowne, NULL, instancja, NULL);
 
@@ -171,7 +171,7 @@ LRESULT CALLBACK ProcOknaGlownego(HWND okno, UINT komunikat, WPARAM wParam, LPAR
          int glebokosc = GetDeviceCaps(kont, BITSPIXEL);
          ReleaseDC(okno, kont);
       	if ((glebokosc <= 8) || (szerokosc < 800) || (wysokosc < 600))
-         	MessageBox(okno, "Do wygodnej pracy z programem zalecana jest rozdzielczoœæ co najmniej 800x600 przy 65 tysi¹cach kolorów.", "Zmiana parametrów obrazu", MB_OK|MB_ICONINFORMATION);
+         	MessageBox(okno, L"Do wygodnej pracy z programem zalecana jest rozdzielczoœæ co najmniej 800x600 przy 65 tysi¹cach kolorów.", L"Zmiana parametrów obrazu", MB_OK|MB_ICONINFORMATION);
       	break;
          }
       case WM_PYTANIE:
@@ -185,7 +185,7 @@ LRESULT CALLBACK ProcOknaGlownego(HWND okno, UINT komunikat, WPARAM wParam, LPAR
          }
       case WM_CLOSE:
       	if (praca_dziala)
-         	MessageBox(okno, "Nie mo¿na zakoñczyæ programu, gdy pracuje symulacja. Musisz j¹ wpierw zatrzymaæ.", "Symulacja aktywna!", MB_OK);
+         	MessageBox(okno, L"Nie mo¿na zakoñczyæ programu, gdy pracuje symulacja. Musisz j¹ wpierw zatrzymaæ.", L"Symulacja aktywna!", MB_OK);
          else
          	DestroyWindow(okno);
       	break;
@@ -194,7 +194,7 @@ LRESULT CALLBACK ProcOknaGlownego(HWND okno, UINT komunikat, WPARAM wParam, LPAR
          break;
       case WM_DISPLAYCHANGE:
       	if ((wParam <= 8) || (LOWORD(lParam) < 800) || (HIWORD(lParam) < 600))
-         	MessageBox(okno, "Do wygodnej pracy z programem zalecana jest rozdzielczoœæ co najmniej 800x600 przy 65 tysi¹cach kolorów.", "Zmiana parametrów obrazu", MB_OK|MB_ICONINFORMATION);
+         	MessageBox(okno, L"Do wygodnej pracy z programem zalecana jest rozdzielczoœæ co najmniej 800x600 przy 65 tysi¹cach kolorów.", L"Zmiana parametrów obrazu", MB_OK|MB_ICONINFORMATION);
       	break;
       case WM_COMMAND:
       	switch (LOWORD(wParam))
@@ -248,26 +248,26 @@ LRESULT CALLBACK ProcOknaGlownego(HWND okno, UINT komunikat, WPARAM wParam, LPAR
             	{
                if (akt_lekcja)
                	{
-                  char nazwa[256];
+                  wchar_t nazwa[256];
                   nazwa[0] = '\0';
                   OPENFILENAME strukt;
                   ZeroMemory((void *)&strukt, sizeof(OPENFILENAME));
                   strukt.lStructSize = sizeof(OPENFILENAME);
                   strukt.hwndOwner = okno;
-                  strukt.lpstrFilter = "Programy LD (*.ld)\0*.ld\0Wszystkie pliki (*.*)\0*.*\0\0";
+                  strukt.lpstrFilter = L"Programy LD (*.ld)\0*.ld\0Wszystkie pliki (*.*)\0*.*\0\0";
                   strukt.lpstrCustomFilter = NULL;
                   strukt.nFilterIndex = 1;
 						strukt.lpstrFile = nazwa;
                   strukt.nMaxFile = 256;
                   strukt.lpstrFileTitle = NULL;
                   strukt.lpstrInitialDir = NULL;
-                  strukt.lpstrTitle = "Wczytaj program LD:";
+                  strukt.lpstrTitle = L"Wczytaj program LD:";
                   strukt.Flags = OFN_HIDEREADONLY|OFN_NOCHANGEDIR;
-                  strukt.lpstrDefExt = "ld";
+                  strukt.lpstrDefExt = L"ld";
                   if (GetOpenFileName(&strukt))
                   	{
                      FILE * plik;
-                     plik = fopen(strukt.lpstrFile, "rb");
+                     plik = _wfopen(strukt.lpstrFile, L"rb");
                      if (plik)
                      	akt_program_LD->wczytaj(plik);
                      fclose(plik);
@@ -279,27 +279,27 @@ LRESULT CALLBACK ProcOknaGlownego(HWND okno, UINT komunikat, WPARAM wParam, LPAR
             	{
                if (akt_lekcja)
                	{
-                  char nazwa[256];
+                  wchar_t nazwa[256];
                   nazwa[0] = '\0';
                   OPENFILENAME strukt;
                   ZeroMemory((void *)&strukt, sizeof(strukt));
                   strukt.lStructSize = sizeof(OPENFILENAME);
                   strukt.hwndOwner = okno;
                   strukt.hInstance = instancja;
-                  strukt.lpstrFilter = "Programy LD (*.ld)\0*.ld\0Wszystkie pliki (*.*)\0*.*\0";
+                  strukt.lpstrFilter = L"Programy LD (*.ld)\0*.ld\0Wszystkie pliki (*.*)\0*.*\0";
                   strukt.lpstrCustomFilter = NULL;
                   strukt.nFilterIndex = 1;
 						strukt.lpstrFile = nazwa;
                   strukt.nMaxFile = 256;
                   strukt.lpstrFileTitle = NULL;
                   strukt.lpstrInitialDir = NULL;
-                  strukt.lpstrTitle = "Zapisz program LD:";
+                  strukt.lpstrTitle = L"Zapisz program LD:";
                   strukt.Flags = OFN_HIDEREADONLY|OFN_NOCHANGEDIR|OFN_OVERWRITEPROMPT|OFN_EXPLORER;
-                  strukt.lpstrDefExt = "ld";
+                  strukt.lpstrDefExt = L"ld";
                   if (GetSaveFileName(&strukt))
                   	{
                      FILE * plik;
-                     plik = fopen(strukt.lpstrFile, "wb");
+                     plik = _wfopen(strukt.lpstrFile, L"wb");
                      if (plik)
                      	akt_program_LD->zapisz(plik);
                      fclose(plik);

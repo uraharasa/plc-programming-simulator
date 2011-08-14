@@ -5,11 +5,11 @@
 
 lekcja::lekcja()
 	{
-	okno_LD = CreateWindow("OknoLD", "Program LD", WS_CAPTION|WS_CHILD|WS_CLIPSIBLINGS|WS_HSCROLL|WS_VSCROLL|WS_THICKFRAME|WS_VISIBLE|WS_MAXIMIZEBOX,
+	okno_LD = CreateWindow(L"OknoLD", L"Program LD", WS_CAPTION|WS_CHILD|WS_CLIPSIBLINGS|WS_HSCROLL|WS_VSCROLL|WS_THICKFRAME|WS_VISIBLE|WS_MAXIMIZEBOX,
 		0, 50, 200, 200,
       OknoGlowne, NULL, instancja, NULL);
    ShowWindow(OknoNarzedzi, SW_SHOW);
-   okno = CreateWindow("OknoLekcji", "Uk³ad wykonawczy", WS_CAPTION|WS_CHILD|WS_CLIPSIBLINGS|WS_VISIBLE,
+   okno = CreateWindow(L"OknoLekcji", L"Uk³ad wykonawczy", WS_CAPTION|WS_CHILD|WS_CLIPSIBLINGS|WS_VISIBLE,
    	0, 50, 200, 200,
       OknoGlowne, NULL, instancja, NULL);
    SendDlgItemMessage(OknoGlowne, IDC_TOOLBAR, TB_ENABLEBUTTON, CM_PRACASTART, MAKELONG(TRUE, 0));
@@ -32,10 +32,9 @@ lekcja::lekcja()
    wyjscia_Q = NULL;
    wejscia_AI = NULL;
    wyjscia_AQ = NULL;
-   nazwa = NULL;
    }
 
-char * lekcja::podaj_nazwe()
+wstring lekcja::podaj_nazwe()
 	{
    return nazwa;
    }

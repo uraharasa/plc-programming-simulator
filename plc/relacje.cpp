@@ -2,18 +2,17 @@
 
 relacja_rowny::relacja_rowny()
 	{
-	nazwa = "relacja_rowny";
-   nazwa_bloku = new char[strlen("EQ")+1];
-   strcpy(nazwa_bloku, "EQ");
+	nazwa = L"relacja_rowny";
+   nazwa_bloku = L"EQ";
    il_wejsc = 2;
    wejscia = new pamiec *[2];
-   *wejscia = new pamiec("I1", MOZNA_I|MOZNA_Q|MOZNA_R|MOZNA_M|MOZNA_AI|MOZNA_AQ|MOZNA_CONST);
-   *(wejscia+1) = new pamiec("I2", MOZNA_I|MOZNA_Q|MOZNA_R|MOZNA_M|MOZNA_AI|MOZNA_AQ|MOZNA_CONST);
+   *wejscia = new pamiec(L"I1", MOZNA_I|MOZNA_Q|MOZNA_R|MOZNA_M|MOZNA_AI|MOZNA_AQ|MOZNA_CONST);
+   *(wejscia+1) = new pamiec(L"I2", MOZNA_I|MOZNA_Q|MOZNA_R|MOZNA_M|MOZNA_AI|MOZNA_AQ|MOZNA_CONST);
    }
 
 relacja_rowny::relacja_rowny(FILE * plik): blok_funkcyjny(plik)
 	{
-	nazwa = "relacja_rowny";
+	nazwa = L"relacja_rowny";
    }
 
 int relacja_rowny::dzialaj(int wejscie)
@@ -39,18 +38,17 @@ element * relacja_rowny::sklonuj(FILE * plik)
 
 relacja_nierowny::relacja_nierowny()
 	{
-	nazwa = "relacja_nierowny";
-   nazwa_bloku = new char[strlen("NE")+1];
-   strcpy(nazwa_bloku, "NE");
+	nazwa = L"relacja_nierowny";
+   nazwa_bloku = L"NE";
    il_wejsc = 2;
    wejscia = new pamiec *[2];
-   *wejscia = new pamiec("I1", MOZNA_I|MOZNA_Q|MOZNA_R|MOZNA_M|MOZNA_AI|MOZNA_AQ|MOZNA_CONST);
-   *(wejscia+1) = new pamiec("I2", MOZNA_I|MOZNA_Q|MOZNA_R|MOZNA_M|MOZNA_AI|MOZNA_AQ|MOZNA_CONST);
+   *wejscia = new pamiec(L"I1", MOZNA_I|MOZNA_Q|MOZNA_R|MOZNA_M|MOZNA_AI|MOZNA_AQ|MOZNA_CONST);
+   *(wejscia+1) = new pamiec(L"I2", MOZNA_I|MOZNA_Q|MOZNA_R|MOZNA_M|MOZNA_AI|MOZNA_AQ|MOZNA_CONST);
    }
 
 relacja_nierowny::relacja_nierowny(FILE * plik): blok_funkcyjny(plik)
 	{
-	nazwa = "relacja_nierowny";
+	nazwa = L"relacja_nierowny";
    }
 
 int relacja_nierowny::dzialaj(int wejscie)
@@ -76,18 +74,17 @@ element * relacja_nierowny::sklonuj(FILE * plik)
 
 relacja_wiekszy::relacja_wiekszy()
 	{
-	nazwa = "relacja_wiekszy";
-   nazwa_bloku = new char[strlen("GT")+1];
-   strcpy(nazwa_bloku, "GT");
+	nazwa = L"relacja_wiekszy";
+   nazwa_bloku = L"GT";
    il_wejsc = 2;
    wejscia = new pamiec *[2];
-   *wejscia = new pamiec("I1", MOZNA_I|MOZNA_Q|MOZNA_R|MOZNA_M|MOZNA_AI|MOZNA_AQ|MOZNA_CONST);
-   *(wejscia+1) = new pamiec("I2", MOZNA_I|MOZNA_Q|MOZNA_R|MOZNA_M|MOZNA_AI|MOZNA_AQ|MOZNA_CONST);
+   *wejscia = new pamiec(L"I1", MOZNA_I|MOZNA_Q|MOZNA_R|MOZNA_M|MOZNA_AI|MOZNA_AQ|MOZNA_CONST);
+   *(wejscia+1) = new pamiec(L"I2", MOZNA_I|MOZNA_Q|MOZNA_R|MOZNA_M|MOZNA_AI|MOZNA_AQ|MOZNA_CONST);
    }
 
 relacja_wiekszy::relacja_wiekszy(FILE * plik): blok_funkcyjny(plik)
 	{
-	nazwa = "relacja_wiekszy";
+	nazwa = L"relacja_wiekszy";
    }
 
 int relacja_wiekszy::dzialaj(int wejscie)
@@ -113,18 +110,17 @@ element * relacja_wiekszy::sklonuj(FILE * plik)
 
 relacja_wiekszyrowny::relacja_wiekszyrowny()
 	{
-	nazwa = "relacja_wiekszyrowny";
-   nazwa_bloku = new char[strlen("GE")+1];
-   strcpy(nazwa_bloku, "GE");
+	nazwa = L"relacja_wiekszyrowny";
+   nazwa_bloku = L"GE";
    il_wejsc = 2;
    wejscia = new pamiec *[2];
-   *wejscia = new pamiec("I1", MOZNA_I|MOZNA_Q|MOZNA_R|MOZNA_M|MOZNA_AI|MOZNA_AQ|MOZNA_CONST);
-   *(wejscia+1) = new pamiec("I2", MOZNA_I|MOZNA_Q|MOZNA_R|MOZNA_M|MOZNA_AI|MOZNA_AQ|MOZNA_CONST);
+   *wejscia = new pamiec(L"I1", MOZNA_I|MOZNA_Q|MOZNA_R|MOZNA_M|MOZNA_AI|MOZNA_AQ|MOZNA_CONST);
+   *(wejscia+1) = new pamiec(L"I2", MOZNA_I|MOZNA_Q|MOZNA_R|MOZNA_M|MOZNA_AI|MOZNA_AQ|MOZNA_CONST);
    }
 
 relacja_wiekszyrowny::relacja_wiekszyrowny(FILE * plik): blok_funkcyjny(plik)
 	{
-	nazwa = "relacja_wiekszyrowny";
+	nazwa = L"relacja_wiekszyrowny";
    }
 
 int relacja_wiekszyrowny::dzialaj(int wejscie)
@@ -150,18 +146,17 @@ element * relacja_wiekszyrowny::sklonuj(FILE * plik)
 
 relacja_mniejszy::relacja_mniejszy()
 	{
-	nazwa = "relacja_mniejszy";
-   nazwa_bloku = new char[strlen("LT")+1];
-   strcpy(nazwa_bloku, "LT");
+	nazwa = L"relacja_mniejszy";
+   nazwa_bloku = L"LT";
    il_wejsc = 2;
    wejscia = new pamiec *[2];
-   *wejscia = new pamiec("I1", MOZNA_I|MOZNA_Q|MOZNA_R|MOZNA_M|MOZNA_AI|MOZNA_AQ|MOZNA_CONST);
-   *(wejscia+1) = new pamiec("I2", MOZNA_I|MOZNA_Q|MOZNA_R|MOZNA_M|MOZNA_AI|MOZNA_AQ|MOZNA_CONST);
+   *wejscia = new pamiec(L"I1", MOZNA_I|MOZNA_Q|MOZNA_R|MOZNA_M|MOZNA_AI|MOZNA_AQ|MOZNA_CONST);
+   *(wejscia+1) = new pamiec(L"I2", MOZNA_I|MOZNA_Q|MOZNA_R|MOZNA_M|MOZNA_AI|MOZNA_AQ|MOZNA_CONST);
    }
 
 relacja_mniejszy::relacja_mniejszy(FILE * plik): blok_funkcyjny(plik)
 	{
-	nazwa = "relacja_mniejszy";
+	nazwa = L"relacja_mniejszy";
    }
 
 int relacja_mniejszy::dzialaj(int wejscie)
@@ -187,18 +182,17 @@ element * relacja_mniejszy::sklonuj(FILE * plik)
 
 relacja_mniejszyrowny::relacja_mniejszyrowny()
 	{
-	nazwa = "relacja_mniejszyrowny";
-   nazwa_bloku = new char[strlen("LE")+1];
-   strcpy(nazwa_bloku, "LE");
+	nazwa = L"relacja_mniejszyrowny";
+   nazwa_bloku = L"LE";
    il_wejsc = 2;
    wejscia = new pamiec *[2];
-   *wejscia = new pamiec("I1", MOZNA_I|MOZNA_Q|MOZNA_R|MOZNA_M|MOZNA_AI|MOZNA_AQ|MOZNA_CONST);
-   *(wejscia+1) = new pamiec("I2", MOZNA_I|MOZNA_Q|MOZNA_R|MOZNA_M|MOZNA_AI|MOZNA_AQ|MOZNA_CONST);
+   *wejscia = new pamiec(L"I1", MOZNA_I|MOZNA_Q|MOZNA_R|MOZNA_M|MOZNA_AI|MOZNA_AQ|MOZNA_CONST);
+   *(wejscia+1) = new pamiec(L"I2", MOZNA_I|MOZNA_Q|MOZNA_R|MOZNA_M|MOZNA_AI|MOZNA_AQ|MOZNA_CONST);
    }
 
 relacja_mniejszyrowny::relacja_mniejszyrowny(FILE * plik): blok_funkcyjny(plik)
 	{
-	nazwa = "relacja_mniejszyrowny";
+	nazwa = L"relacja_mniejszyrowny";
    }
 
 int relacja_mniejszyrowny::dzialaj(int wejscie)
@@ -224,19 +218,18 @@ element * relacja_mniejszyrowny::sklonuj(FILE * plik)
 
 relacja_zakres::relacja_zakres()
 	{
-	nazwa = "relacja_zakres";
-   nazwa_bloku = new char[strlen("RANGE")+1];
-   strcpy(nazwa_bloku, "RANGE");
+	nazwa = L"relacja_zakres";
+   nazwa_bloku = L"RANGE";
    il_wejsc = 3;
    wejscia = new pamiec *[3];
-   *wejscia = new pamiec("L1", MOZNA_I|MOZNA_Q|MOZNA_R|MOZNA_M|MOZNA_AI|MOZNA_AQ|MOZNA_CONST);
-   *(wejscia+1) = new pamiec("L2", MOZNA_I|MOZNA_Q|MOZNA_R|MOZNA_M|MOZNA_AI|MOZNA_AQ|MOZNA_CONST);
-   *(wejscia+2) = new pamiec("IN", MOZNA_I|MOZNA_Q|MOZNA_R|MOZNA_M|MOZNA_AI|MOZNA_AQ|MOZNA_CONST);
+   *wejscia = new pamiec(L"L1", MOZNA_I|MOZNA_Q|MOZNA_R|MOZNA_M|MOZNA_AI|MOZNA_AQ|MOZNA_CONST);
+   *(wejscia+1) = new pamiec(L"L2", MOZNA_I|MOZNA_Q|MOZNA_R|MOZNA_M|MOZNA_AI|MOZNA_AQ|MOZNA_CONST);
+   *(wejscia+2) = new pamiec(L"IN", MOZNA_I|MOZNA_Q|MOZNA_R|MOZNA_M|MOZNA_AI|MOZNA_AQ|MOZNA_CONST);
    }
 
 relacja_zakres::relacja_zakres(FILE * plik): blok_funkcyjny(plik)
 	{
-	nazwa = "relacja_zakres";
+	nazwa = L"relacja_zakres";
    }
 
 int relacja_zakres::dzialaj(int wejscie)

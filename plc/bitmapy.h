@@ -2,6 +2,8 @@
 #define bitmapy_h_included
 
 #include <windows.h>
+#include <string>
+using namespace std;
 
 class bitmapa
 	{
@@ -11,7 +13,7 @@ class bitmapa
       HBITMAP mapa;
       HBITMAP maska;
    public:
-   	bitmapa(char * nazwa_pliku);
+   	bitmapa(wstring nazwa_pliku);
       ~bitmapa(void);
       void wyswietl(HDC kontekst, int x, int y, int szer = -1, int wys = -1, int pocz_x = 0, int pocz_y = 0);
    };

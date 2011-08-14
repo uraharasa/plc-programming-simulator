@@ -23,10 +23,9 @@ int pamiec::il_AQ = 0;
 opis_komorki * pamiec::lista_opisow = NULL;
 opis_komorki * pamiec::koniec_listy = NULL;
 
-pamiec::pamiec(char * nazwa, int dozwolone, int szerokosc)
+pamiec::pamiec(wstring nazwa, int dozwolone, int szerokosc)
 	{
-   nazwa_komorki = new char[strlen(nazwa)+1];
-   strcpy(nazwa_komorki, nazwa);
+   nazwa_komorki = nazwa;
    dozwolone_typy = dozwolone;
    zajetosc_pamieci = szerokosc;
    valid = FALSE;
@@ -34,8 +33,6 @@ pamiec::pamiec(char * nazwa, int dozwolone, int szerokosc)
 
 pamiec::pamiec(typy_pamieci typ, int adres, int szerokosc)
 	{
-   nazwa_komorki = new char;
-   *nazwa_komorki = '\0';
    valid = TRUE;
    zajetosc_pamieci = szerokosc;
    adres_pamieci = adres;
@@ -44,7 +41,6 @@ pamiec::pamiec(typy_pamieci typ, int adres, int szerokosc)
 
 pamiec::~pamiec()
 	{
-   delete nazwa_komorki;
    }
 
 void pamiec::nowe_parametry_sterownika(int nowe_I, int nowe_Q, int nowe_R, int nowe_M, int nowe_AI, int nowe_AQ)
@@ -145,96 +141,88 @@ int pamiec::odczytaj_pamiec(int adres)
    return 0;
    }
 
-char * pamiec::podpisz_nazwa(void)
+wstring pamiec::podpisz_nazwa(void)
 	{
-   char * nowy = new char[sizeof(nazwa_komorki)+1];
-	strcpy(nowy, nazwa_komorki);
-   return nowy;
+   return nazwa_komorki;
    }
 
 void pamiec::narysuj_adres(HDC kontekst, int x, int y, int align)
 	{
    SetTextAlign(kontekst, align);
-   char * napis = podpisz_adres();
+   wstring napis = podpisz_adres();
    COLORREF kolor = GetTextColor(kontekst);
-	if (*napis == '?')
+	if (napis[0] == '?')
      	SetTextColor(kontekst, KOLOR_ADRES_ZLY);
    else
    	SetTextColor(kontekst, KOLOR_ADRES_DOBRY);
-   TextOut(kontekst, x, y, napis, strlen(napis));
+	TextOut(kontekst, x, y, napis.c_str(), napis.length());
   	SetTextColor(kontekst, kolor);
-   delete napis;
    }
 
 void pamiec::narysuj_nazwe(HDC kontekst, int x, int y, int align)
 	{
    SetTextAlign(kontekst, align);
-   char * napis = podpisz_nazwa();
-   TextOut(kontekst, x, y, napis, strlen(napis));
-   delete napis;
+   wstring napis = podpisz_nazwa();
+   TextOut(kontekst, x, y, napis.c_str(), napis.length());
    }
 
-char * pamiec::podpisz_adres(void)
+wstring pamiec::podpisz_adres(void)
 	{
    if (valid)
    	{
-      char * znaleziony;
-      if (znaleziony = poszukaj_opisu(typ_pamieci, adres_pamieci))
+      wstring znaleziony;
+	  if ((znaleziony = poszukaj_opisu(typ_pamieci, adres_pamieci)).length() > 0)
       	{
-         char * do_zwrotu = new char[strlen(znaleziony)+1];
-         strcpy(do_zwrotu, znaleziony);
-         return do_zwrotu;
+         return znaleziony;
          }
-	   char nowy[40];
-		nowy[0] = '\0';
+	   wstring nowy;
 		switch (typ_pamieci)
 	   	{
 	      case typ_I:
-	      	strcat(nowy, "%I");
+	      	nowy += L"%I";
 	      	break;
 	      case typ_Q:
-	      	strcat(nowy, "%Q");
+	      	nowy += L"%Q";
 	      	break;
 	      case typ_R:
-	      	strcat(nowy, "%R");
+	      	nowy += L"%R";
 	      	break;
 	      case typ_M:
-	      	strcat(nowy, "%M");
+	      	nowy += L"%M";
 	      	break;
 	      case typ_AI:
-	      	strcat(nowy, "%AI");
+	      	nowy += L"%AI";
 	      	break;
 	      case typ_AQ:
-	      	strcat(nowy, "%AQ");
+	      	nowy += L"%AQ";
 	      	break;
 	      case typ_CONST:
-	      	strcat(nowy, "CST ");
+	      	nowy += L"CST ";
             if (adres_pamieci>0)
-            	strcat(nowy, "+");
+            	nowy += L"+";
 	      	break;
 	      }
 	   int ad = adres_pamieci;
 	   if (ad<0)
 	   	{
-	      strcat(nowy, "-");
+	      nowy += L"-";
 	      ad = -ad;
 	      }
-	   int dl = strlen(nowy);
+	   wstring liczba;
 	   for (int i = 0; i<ILE_CYFR; i++)
 	   	{
-	      nowy[dl+ILE_CYFR-i-1] = (ad % 10) + 0x30;
+	      liczba += (ad % 10) + 0x30;
 	      ad /=10;
 	      }
-	   nowy[dl+ILE_CYFR] = '\0';
-	   char * do_zwrotu = new char[strlen(nowy)+1];
-	   strcpy(do_zwrotu, nowy);
-	   return do_zwrotu;
+	   for (int i = 0; i<ILE_CYFR; i++)
+	   	{
+	      nowy += liczba[ILE_CYFR - i - 1];
+	      }
+	   return nowy;
       }
    else
    	{
-      char * do_zwrotu = new char[strlen("????")+1];
-      strcpy(do_zwrotu, "????");
-      return do_zwrotu;
+      return L"????";
       }
 	}
 
@@ -356,7 +344,7 @@ BOOL CALLBACK ProcPamieci(HWND okno, UINT komunikat, WPARAM wParam, LPARAM lPara
                }
             SendDlgItemMessage(okno, IDC_MSCTLS_UPDOWN1, UDM_SETPOS, 0, MAKELONG(adres_pamieci, 0));
             }
-			SendDlgItemMessage(okno, IDC_PREDEFINIOWANE, CB_INSERTSTRING, 0, (LPARAM)"W³asne ustawienie");
+			SendDlgItemMessage(okno, IDC_PREDEFINIOWANE, CB_INSERTSTRING, 0, (LPARAM)L"W³asne ustawienie");
          opis_komorki * akt = pamiec::lista_opisow;
          int i = 1;
          int q = 1;
@@ -364,7 +352,7 @@ BOOL CALLBACK ProcPamieci(HWND okno, UINT komunikat, WPARAM wParam, LPARAM lPara
          	{
             if ((akt->typ) & dozwolone_typy)
             	{
-	            SendDlgItemMessage(okno, IDC_PREDEFINIOWANE, CB_INSERTSTRING, i, (LPARAM) akt->opis);
+					SendDlgItemMessage(okno, IDC_PREDEFINIOWANE, CB_INSERTSTRING, i, (LPARAM) akt->opis.c_str());
                SendDlgItemMessage(okno, IDC_PREDEFINIOWANE, CB_SETITEMDATA, i, q);
 	            i++;
                }
@@ -398,60 +386,60 @@ BOOL CALLBACK ProcPamieci(HWND okno, UINT komunikat, WPARAM wParam, LPARAM lPara
             	EndDialog(okno, FALSE);
                break;
             case IDC_RADIO_I:
-            	SetDlgItemText(okno, IDC_TEXT, "Wybierz numer wejœcia :");
+            	SetDlgItemText(okno, IDC_TEXT, L"Wybierz numer wejœcia :");
                SendDlgItemMessage(okno, IDC_MSCTLS_UPDOWN1, UDM_SETRANGE, 0, MAKELONG(il_I, 0));
                typ_pamieci = typ_I;
                if (!oszukanstwo)
                   SendDlgItemMessage(okno, IDC_PREDEFINIOWANE, CB_SETCURSEL, 0, 0);
-               SetDlgItemText(okno, IDC_ADRES, "0");
+               SetDlgItemText(okno, IDC_ADRES, L"0");
             	break;
             case IDC_RADIO_Q:
-            	SetDlgItemText(okno, IDC_TEXT, "Wybierz numer wyjœcia :");
+            	SetDlgItemText(okno, IDC_TEXT, L"Wybierz numer wyjœcia :");
                SendDlgItemMessage(okno, IDC_MSCTLS_UPDOWN1, UDM_SETRANGE, 0, MAKELONG(il_Q, 0));
                typ_pamieci = typ_Q;
                if (!oszukanstwo)
                   SendDlgItemMessage(okno, IDC_PREDEFINIOWANE, CB_SETCURSEL, 0, 0);
-               SetDlgItemText(okno, IDC_ADRES, "0");
+               SetDlgItemText(okno, IDC_ADRES, L"0");
             	break;
             case IDC_RADIO_R:
-            	SetDlgItemText(okno, IDC_TEXT, "Wybierz adres komórki :");
+            	SetDlgItemText(okno, IDC_TEXT, L"Wybierz adres komórki :");
                SendDlgItemMessage(okno, IDC_MSCTLS_UPDOWN1, UDM_SETRANGE, 0, MAKELONG(il_R, 0));
                typ_pamieci = typ_R;
                if (!oszukanstwo)
                   SendDlgItemMessage(okno, IDC_PREDEFINIOWANE, CB_SETCURSEL, 0, 0);
-               SetDlgItemText(okno, IDC_ADRES, "0");
+               SetDlgItemText(okno, IDC_ADRES, L"0");
             	break;
             case IDC_RADIO_M:
-            	SetDlgItemText(okno, IDC_TEXT, "Wybierz adres komórki :");
+            	SetDlgItemText(okno, IDC_TEXT, L"Wybierz adres komórki :");
                SendDlgItemMessage(okno, IDC_MSCTLS_UPDOWN1, UDM_SETRANGE, 0, MAKELONG(il_M, 0));
                typ_pamieci = typ_M;
                if (!oszukanstwo)
                   SendDlgItemMessage(okno, IDC_PREDEFINIOWANE, CB_SETCURSEL, 0, 0);
-               SetDlgItemText(okno, IDC_ADRES, "0");
+               SetDlgItemText(okno, IDC_ADRES, L"0");
             	break;
             case IDC_RADIO_AI:
-            	SetDlgItemText(okno, IDC_TEXT, "Wybierz numer wejœcia :");
+            	SetDlgItemText(okno, IDC_TEXT, L"Wybierz numer wejœcia :");
                SendDlgItemMessage(okno, IDC_MSCTLS_UPDOWN1, UDM_SETRANGE, 0, MAKELONG(il_AI, 0));
                typ_pamieci = typ_AI;
                if (!oszukanstwo)
                   SendDlgItemMessage(okno, IDC_PREDEFINIOWANE, CB_SETCURSEL, 0, 0);
-               SetDlgItemText(okno, IDC_ADRES, "0");
+               SetDlgItemText(okno, IDC_ADRES, L"0");
             	break;
             case IDC_RADIO_AQ:
-            	SetDlgItemText(okno, IDC_TEXT, "Wybierz numer wyjœcia :");
+            	SetDlgItemText(okno, IDC_TEXT, L"Wybierz numer wyjœcia :");
                SendDlgItemMessage(okno, IDC_MSCTLS_UPDOWN1, UDM_SETRANGE, 0, MAKELONG(il_AQ, 0));
                typ_pamieci = typ_AQ;
                if (!oszukanstwo)
                   SendDlgItemMessage(okno, IDC_PREDEFINIOWANE, CB_SETCURSEL, 0, 0);
-               SetDlgItemText(okno, IDC_ADRES, "0");
+               SetDlgItemText(okno, IDC_ADRES, L"0");
             	break;
             case IDC_RADIO_CONST:
-            	SetDlgItemText(okno, IDC_TEXT, "Podaj sta³¹ :");
+            	SetDlgItemText(okno, IDC_TEXT, L"Podaj sta³¹ :");
                SendDlgItemMessage(okno, IDC_MSCTLS_UPDOWN1, UDM_SETRANGE, 0, MAKELONG(9999, -9999));
                typ_pamieci = typ_CONST;
                if (!oszukanstwo)
                   SendDlgItemMessage(okno, IDC_PREDEFINIOWANE, CB_SETCURSEL, 0, 0);
-               SetDlgItemText(okno, IDC_ADRES, "0");
+               SetDlgItemText(okno, IDC_ADRES, L"0");
             	break;
             case IDC_ADRES:
             	if (HIWORD(wParam) == EN_CHANGE)
@@ -513,7 +501,7 @@ BOOL CALLBACK ProcPamieci(HWND okno, UINT komunikat, WPARAM wParam, LPARAM lPara
    return TRUE;
    }
 
-void pamiec::dodaj_opis(typy_pamieci typ, int adres, char * opis)
+void pamiec::dodaj_opis(typy_pamieci typ, int adres, wstring opis)
 	{
 	if (!koniec_listy)
    	{
@@ -528,11 +516,10 @@ void pamiec::dodaj_opis(typy_pamieci typ, int adres, char * opis)
    koniec_listy->nastepny = NULL;
    koniec_listy->typ = typ;
    koniec_listy->adres = adres;
-   koniec_listy->opis = new char[strlen(opis)+1];
-   strcpy(koniec_listy->opis, opis);
+   koniec_listy->opis = opis;
    }
 
-char * pamiec::poszukaj_opisu(typy_pamieci typ, int adres)
+wstring pamiec::poszukaj_opisu(typy_pamieci typ, int adres)
 	{
    opis_komorki * akt = lista_opisow;
    while (akt)
@@ -541,7 +528,7 @@ char * pamiec::poszukaj_opisu(typy_pamieci typ, int adres)
          return akt->opis;
       akt = akt->nastepny;
       }
-   return NULL;
+   return L"";
    }
 
 void pamiec::usun_opisy(void)
@@ -550,7 +537,6 @@ void pamiec::usun_opisy(void)
    while (akt)
    	{
       opis_komorki * nast = akt->nastepny;
-      delete akt->opis;
       delete akt;
       akt = nast;
       }
@@ -565,7 +551,7 @@ void pamiec::zapisz(FILE * plik)
    fwrite(&typ_pamieci, sizeof(typ_pamieci), 1, plik);
    fwrite(&dozwolone_typy, sizeof(dozwolone_typy), 1, plik);
    fwrite(&valid, sizeof(valid), 1, plik);
-   fwrite(nazwa_komorki, 1, strlen(nazwa_komorki)+1, plik);
+   fwrite(nazwa_komorki.c_str(), 2, nazwa_komorki.length()+1, plik);
    }
 
 pamiec::pamiec(FILE * plik)
@@ -575,14 +561,14 @@ pamiec::pamiec(FILE * plik)
    fread(&typ_pamieci, sizeof(typ_pamieci), 1, plik);
    fread(&dozwolone_typy, sizeof(dozwolone_typy), 1, plik);
    fread(&valid, sizeof(valid), 1, plik);
-   char bufor[256];
+   wchar_t bufor[256];
    int i=0;
    do
    	{
-      bufor[i] = fgetc(plik);
+		wchar_t letter = fgetc(plik) | (fgetc(plik) << 8);
+      bufor[i] = letter;
       i++;
       } while (bufor[i-1]);
-   nazwa_komorki = new char[strlen(bufor)+1];
-   strcpy(nazwa_komorki, bufor);
+   nazwa_komorki = bufor;
    }
 

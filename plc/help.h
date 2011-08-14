@@ -2,11 +2,13 @@
 #define help_h_included
 
 #include <windows.h>
+#include <string>
+using namespace std;
 
 class help
 	{
    public:
-		void wyswietl(char * topic);
+		void wyswietl(wstring topic);
    };
 
 extern help pomoc;

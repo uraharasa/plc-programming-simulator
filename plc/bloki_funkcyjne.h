@@ -2,11 +2,13 @@
 #define bloki_funkcyjne_h_included
 
 #include "element.h"
+#include <string>
+using namespace std;
 
 class blok_funkcyjny : public element_zwykly
 	{
    protected:
-	   char * nazwa_bloku;
+	   wstring nazwa_bloku;
    public:
    	blok_funkcyjny();
    	blok_funkcyjny(FILE * plik);

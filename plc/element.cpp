@@ -3,10 +3,9 @@
 
 element::element(void)
 	{
-   nazwa = NULL;
    }
 
-char * element::podaj_nazwe(void)
+wstring element::podaj_nazwe(void)
 	{
    return nazwa;
    }
@@ -67,7 +66,7 @@ ZDARZENIE element_zwykly::edytuj(int , int , ZDARZENIE zdarzenie, element * &edy
 void element_zwykly::zapisz(FILE * plik)
 	{
    int stala;
-   fwrite(nazwa, 1, strlen(nazwa)+1, plik);
+   fwrite(nazwa.c_str(), 2, nazwa.length()+1, plik);
    if (adres_bazowy)
    	{
       stala = 1;

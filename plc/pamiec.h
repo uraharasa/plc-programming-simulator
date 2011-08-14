@@ -3,6 +3,8 @@
 
 #include <windows.h>
 #include <stdio.h>
+#include <string>
+using namespace std;
 
 #define MOZNA_CONST	0x0001
 #define MOZNA_I		0x0002
@@ -28,7 +30,7 @@ typedef enum
 
 struct opis_komorki
 	{
-   char * opis;
+   wstring opis;
    typy_pamieci typ;
    int adres;
    opis_komorki * nastepny;
@@ -54,14 +56,14 @@ class pamiec
       typy_pamieci typ_pamieci;
       int dozwolone_typy;
       int valid;
-      char * nazwa_komorki;
+      wstring nazwa_komorki;
       void wybierz_pamiec(int * &komorka, int adres);
       static void usun_opisy(void);
-      static char * poszukaj_opisu(typy_pamieci typ, int adres);
+      static wstring poszukaj_opisu(typy_pamieci typ, int adres);
    public:
       static opis_komorki * lista_opisow;
       static opis_komorki * koniec_listy;
-   	pamiec(char * nazwa, int dozwolone, int szerokosc = 1);
+   	pamiec(wstring nazwa, int dozwolone, int szerokosc = 1);
       pamiec(typy_pamieci typ, int adres, int szerokosc);
       pamiec(FILE * plik);
       ~pamiec();
@@ -69,11 +71,11 @@ class pamiec
       static void wyczysc_pamiec(void);
       void zapisz_pamiec(int wartosc, int adres = 0);
       int odczytaj_pamiec(int adres = 0);
-      char * podpisz_nazwa(void);
+      wstring podpisz_nazwa(void);
       void narysuj_nazwe(HDC kontekst, int x, int y, int align);
-      char * podpisz_adres(void);
+      wstring podpisz_adres(void);
       void narysuj_adres(HDC kontekst, int x, int y, int align);
-      static void dodaj_opis(typy_pamieci typ, int adres, char * opis);
+      static void dodaj_opis(typy_pamieci typ, int adres, wstring opis);
       friend void zmien_parametry_pamieci(HWND okno, pamiec * aktualna);
       void zapisz(FILE * plik);
    };

@@ -1,27 +1,16 @@
 #include "okno_glowne.h"
 #include "bloki_funkcyjne.h"
 
-blok_funkcyjny::blok_funkcyjny() : nazwa_bloku(NULL)
+blok_funkcyjny::blok_funkcyjny() : nazwa_bloku(L"")
 	{
    }
 
 blok_funkcyjny::blok_funkcyjny(FILE * plik): element_zwykly(plik)
 	{
-	char bufor[256];
-   int i = 0;
-   do
-   	{
-      bufor[i] = fgetc(plik);
-      i++;
-      } while (bufor[i-1]);
-   nazwa_bloku = new char[strlen(bufor)+1];
-   strcpy(nazwa_bloku, bufor);
    }
 
 blok_funkcyjny::~blok_funkcyjny()
 	{
-   if (nazwa_bloku)
-   	delete nazwa_bloku;
    }
 
 void blok_funkcyjny::podaj_rozmiar(int & szerokosc, int & wysokosc, int tryb)
@@ -70,10 +59,10 @@ void blok_funkcyjny::narysuj(HDC kontekst, int tryb, int x, int y)
 	   MoveToEx(kontekst, obszar.right, y_pocz+Y_WYJSCIA, NULL);
 	   LineTo(kontekst, obszar.right+5, y_pocz+Y_WYJSCIA);
       }
-   if ((tryb&RYSUJ_NAZWE)&&(nazwa_bloku))
+   if ((tryb&RYSUJ_NAZWE)&&(nazwa_bloku.length() > 0))
    	{
       SetTextAlign(kontekst, TA_CENTER|TA_TOP|TA_NOUPDATECP);
-      TextOut(kontekst, x_bloku+23, y_pocz + 30, nazwa_bloku, strlen(nazwa_bloku));
+	  TextOut(kontekst, x_bloku+23, y_pocz + 30, nazwa_bloku.c_str(), nazwa_bloku.length());
       }
    if ((tryb&RYSUJ_ADRES)&&(adres_bazowy))
       adres_bazowy->narysuj_adres(kontekst, x_bloku+23, y_pocz, TA_CENTER|TA_TOP|TA_NOUPDATECP);
@@ -113,6 +102,5 @@ void blok_funkcyjny::narysuj(HDC kontekst, int tryb, int x, int y)
 void blok_funkcyjny::zapisz(FILE * plik)
 	{
    element_zwykly::zapisz(plik);
-   fwrite(nazwa_bloku, 1, strlen(nazwa_bloku)+1, plik);
    }
 

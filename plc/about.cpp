@@ -1,7 +1,7 @@
 #include "about.h"
 #include "bitmapy.h"
 
-bitmapa about("about");
+bitmapa about(L"about");
 int aktualne_przesuniecie;
 const int rozmiar_y = 649;
 UINT timer;

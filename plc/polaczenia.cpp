@@ -3,7 +3,7 @@
 
 polaczenie_szeregowe::polaczenie_szeregowe(element * jeden, element * dwa): pierwszy(jeden), drugi(dwa), kasowany(FALSE)
 	{
-   nazwa = "polaczenie_szeregowe";
+   nazwa = L"polaczenie_szeregowe";
    }
 
 polaczenie_szeregowe::~polaczenie_szeregowe()
@@ -102,21 +102,21 @@ ZDARZENIE polaczenie_szeregowe::edytuj(int x, int y, ZDARZENIE zdarzenie, elemen
 
 void polaczenie_szeregowe::zapisz(FILE * plik)
 	{
-   fwrite(nazwa, 1, strlen(nazwa)+1, plik);
+		fwrite(nazwa.c_str(), 2, nazwa.length()+1, plik);
    pierwszy->zapisz(plik);
    drugi->zapisz(plik);
    }
 
 polaczenie_szeregowe::polaczenie_szeregowe(FILE * plik)
 	{
-   nazwa = "polaczenie_szeregowe";
+   nazwa = L"polaczenie_szeregowe";
    pierwszy = akt_narzedzia->rozpoznaj_i_wczytaj(plik);
    drugi = akt_narzedzia->rozpoznaj_i_wczytaj(plik);
    }
 
 polaczenie_rownolegle::polaczenie_rownolegle(element * jeden, element * dwa): pierwszy(jeden), drugi(dwa), kasowany(FALSE)
 	{
-   nazwa = "polaczenie_rownolegle";
+   nazwa = L"polaczenie_rownolegle";
    }
 
 polaczenie_rownolegle::~polaczenie_rownolegle()
@@ -237,14 +237,14 @@ ZDARZENIE polaczenie_rownolegle::edytuj(int x, int y, ZDARZENIE zdarzenie, eleme
 
 void polaczenie_rownolegle::zapisz(FILE * plik)
 	{
-   fwrite(nazwa, 1, strlen(nazwa)+1, plik);
+		fwrite(nazwa.c_str(), 2, nazwa.length()+1, plik);
    pierwszy->zapisz(plik);
    drugi->zapisz(plik);
    }
 
 polaczenie_rownolegle::polaczenie_rownolegle(FILE * plik)
 	{
-   nazwa = "polaczenie_rownolegle";
+   nazwa = L"polaczenie_rownolegle";
    pierwszy = akt_narzedzia->rozpoznaj_i_wczytaj(plik);
    drugi = akt_narzedzia->rozpoznaj_i_wczytaj(plik);
    }

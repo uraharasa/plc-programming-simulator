@@ -4,6 +4,8 @@
 #include <windows.h>
 #include <stdio.h>
 #include "pamiec.h"
+#include <string>
+using namespace std;
 
 #define SZEROKOSC_ELEMENTU		80
 #define WYSOKOSC_ELEMENTU		60
@@ -53,10 +55,10 @@ enum ZDARZENIE
 class element
 	{
    protected:
-   	char * nazwa;
+   	wstring nazwa;
 	public:
    	element();
-   	char * podaj_nazwe(void);
+   	wstring podaj_nazwe(void);
 		virtual void podaj_rozmiar(int & szerokosc, int & wysokosc, int tryb = 0) =0;
 		virtual int dzialaj(int wejscie) =0;
 		virtual void narysuj(HDC kontekst, int tryb, int x, int y) =0;

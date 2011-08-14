@@ -16,25 +16,25 @@ BOOL lekcja3::click(int x, int y)
    return FALSE;
    }
 
-lekcja3::lekcja3() : tasma("lekcja3\\tasma"), kolko1("lekcja3\\kolko1"),
-							kolko2("lekcja3\\kolko2"), kolko3("lekcja3\\kolko3"),
-							kolko4("lekcja3\\kolko4"), butelka_pusta("lekcja3\\butelka_pusta"),
-                     butelka_pelna("lekcja3\\butelka_pelna"), tlo("lekcja3\\tlo"),
-                     nalewacz("lekcja3\\nalewacz"),
-                     kapslownik("lekcja3\\kapslownik"), tlok("lekcja3\\tlok"),
-                     kapsel("lekcja3\\kapsel")
+lekcja3::lekcja3() : tasma(L"lekcja3\\tasma"), kolko1(L"lekcja3\\kolko1"),
+							kolko2(L"lekcja3\\kolko2"), kolko3(L"lekcja3\\kolko3"),
+							kolko4(L"lekcja3\\kolko4"), butelka_pusta(L"lekcja3\\butelka_pusta"),
+                     butelka_pelna(L"lekcja3\\butelka_pelna"), tlo(L"lekcja3\\tlo"),
+                     nalewacz(L"lekcja3\\nalewacz"),
+                     kapslownik(L"lekcja3\\kapslownik"), tlok(L"lekcja3\\tlok"),
+                     kapsel(L"lekcja3\\kapsel")
 	{
-   nazwa = "lekcja3";
+   nazwa = L"lekcja3";
    pamiec::nowe_parametry_sterownika(2, 5, 100, 100, 0, 0);
    wejscia_I = new pamiec(typ_I, 0, 2);
    wyjscia_Q = new pamiec(typ_Q, 0, 5);
-   pamiec::dodaj_opis(typ_Q, 0, "TAŒMA");
-   pamiec::dodaj_opis(typ_Q, 1, "DOP£YW");
-   pamiec::dodaj_opis(typ_Q, 2, "LEJEK");
-   pamiec::dodaj_opis(typ_Q, 3, "KAPSEL");
-   pamiec::dodaj_opis(typ_Q, 4, "T£OK");
-   pamiec::dodaj_opis(typ_I, 0, "PRZY_DOP");
-   pamiec::dodaj_opis(typ_I, 1, "PRZY_KAP"); 
+   pamiec::dodaj_opis(typ_Q, 0, L"TAŒMA");
+   pamiec::dodaj_opis(typ_Q, 1, L"DOP£YW");
+   pamiec::dodaj_opis(typ_Q, 2, L"LEJEK");
+   pamiec::dodaj_opis(typ_Q, 3, L"KAPSEL");
+   pamiec::dodaj_opis(typ_Q, 4, L"T£OK");
+   pamiec::dodaj_opis(typ_I, 0, L"PRZY_DOP");
+   pamiec::dodaj_opis(typ_I, 1, L"PRZY_KAP"); 
    zresetuj();
    }
 
