@@ -275,7 +275,7 @@ int math_sqrt::dzialaj(int wejscie)
 		int i = (*wejscia)->odczytaj_pamiec();
 		if (i >= 0)
 		{
-			int q = sqrt((double)i);
+			int q = (int)sqrt((double)i);
 			if ((q<-32768) || (q>32767))
 			{
 				(*wyjscia)->zapisz_pamiec(q);

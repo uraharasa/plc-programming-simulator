@@ -30,8 +30,8 @@ void lekcja1::dzialaj(void)
 	else
 		wejscia_I->zapisz_pamiec(0, 1);
 	wejscia_AI->zapisz_pamiec(poten1, 0);
-	wejscia_AI->zapisz_pamiec((float)poten2*2.5 + 50 + rand() * 10 / RAND_MAX, 1);
-	float predkosc = wyjscia_AQ->odczytaj_pamiec(0);
+	wejscia_AI->zapisz_pamiec((int)((float)poten2*2.5 + 50 + rand() * 10 / RAND_MAX), 1);
+	float predkosc = (float)wyjscia_AQ->odczytaj_pamiec(0);
 	predkosc -= predkosc*((float)rand() * 100 /(float)1000 / RAND_MAX);
 	if (predkosc < 0)
 		predkosc = 0;
