@@ -1,0 +1,1 @@
+A Windows application that lets you create Programmable Logic Controller programs using Ladder Diagram language and testing their execution in simulated environments.
